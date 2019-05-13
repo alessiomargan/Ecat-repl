@@ -63,12 +63,14 @@ class ZmsgIO(object):
         self.ctx = zmq.Context()
         self.socket = self.ctx.socket(zmq.REQ)
         self.socket.connect("tcp://"+uri)
+        self.debug = 0
 
     def send_to(self, cmd: dict):
         "dict -> protobuf -> serialize to string -> send through socket"
         cmd_pb = dict_to_protobuf(repl_cmd.Repl_cmd, cmd)
-        # print(cmd_pb)
-        if cmd['type'] in ["ECAT_MASTER_CMD","FOE_MASTER"]:
+        if self.debug :
+            print(cmd_pb)
+        if cmd['type'] in ["ECAT_MASTER_CMD", "FOE_MASTER"]:
             cmd_msg = EcatMasterCmdMessage(cmd_pb.SerializeToString())
         else:
             cmd_msg = EscCmdMessage(cmd_pb.SerializeToString())
