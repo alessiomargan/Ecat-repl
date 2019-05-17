@@ -7,6 +7,7 @@ from pipe_io import PipeIO
 from zmsg_io import ZmsgIO
 from base_io import gen_cmds
 
+
 def repl_option():
     parser = argparse.ArgumentParser()
     parser.add_argument("-f", "--file_yaml", dest="repl_yaml", action="store", default="repl.yaml")

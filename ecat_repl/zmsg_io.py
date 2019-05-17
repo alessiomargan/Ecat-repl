@@ -3,9 +3,7 @@ import json
 import zmq
 from protobuf_to_dict import protobuf_to_dict, dict_to_protobuf
 
-import repl_cmd_pb2 as repl_cmd
-from base_io import gen_cmds
-
+from ecat_repl import repl_cmd_pb2 as repl_cmd
 
 class MultiPartMessage(object):
     header = None
@@ -24,7 +22,7 @@ class MultiPartMessage(object):
         msg = self.msg
         if identity:
             msg = [identity] + msg
-        socket.send_multipart(msg)
+        return socket.send_multipart(msg, flags=zmq.NOBLOCK)
 
 
 class HelloMessage(MultiPartMessage):
@@ -74,7 +72,7 @@ class ZmsgIO(object):
             cmd_msg = EcatMasterCmdMessage(cmd_pb.SerializeToString())
         else:
             cmd_msg = EscCmdMessage(cmd_pb.SerializeToString())
-        cmd_msg.send(self.socket)
+        return cmd_msg.send(self.socket)
 
     def recv_from(self):
         rep_data = self.socket.recv()
