@@ -26,6 +26,17 @@ setup(
         "protobuf3-to-dict>=0.1.5",
         "PyYAML>=3.13",
         "pyzmq==18.0.1",
-        "pytest",
     ],
+    extras_require={
+        "dotenv": ["python-dotenv"],
+        "dev": [
+            "pytest>=3",
+            "coverage",
+            "tox",
+            "sphinx",
+            "pallets-sphinx-themes",
+            "sphinxcontrib-log-cabinet",
+        ],
+        "docs": ["sphinx", "pallets-sphinx-themes", "sphinxcontrib-log-cabinet"],
+    },
 )
