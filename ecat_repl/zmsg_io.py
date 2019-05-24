@@ -2,8 +2,11 @@ import yaml
 import json
 import zmq
 from protobuf_to_dict import protobuf_to_dict, dict_to_protobuf
+from dataclasses import asdict, is_dataclass
 
 from ecat_repl import repl_cmd_pb2 as repl_cmd
+from ecat_repl import gen_cmds
+
 
 class MultiPartMessage(object):
     header = None
@@ -61,12 +64,12 @@ class ZmsgIO(object):
         self.ctx = zmq.Context()
         self.socket = self.ctx.socket(zmq.REQ)
         self.socket.connect("tcp://"+uri)
-        self.debug = 0
+        self.debug = False
 
     def send_to(self, cmd: dict):
         "dict -> protobuf -> serialize to string -> send through socket"
         cmd_pb = dict_to_protobuf(repl_cmd.Repl_cmd, cmd)
-        if self.debug :
+        if self.debug:
             print(cmd_pb)
         if cmd['type'] in ["ECAT_MASTER_CMD", "FOE_MASTER"]:
             cmd_msg = EcatMasterCmdMessage(cmd_pb.SerializeToString())
@@ -88,16 +91,26 @@ class ZmsgIO(object):
             print(rep)
         return d
 
-    def doit(self, cmd: dict):
+    def doit(self, cmd):
         ''' send cmd '''
-        self.send_to(cmd)
+        if is_dataclass(cmd):
+            _cmd = asdict(cmd)
+        else:
+            _cmd = cmd
+        if self.debug:
+            print(_cmd)
+        self.send_to(_cmd)
         ''' wait reply ... blocking'''
         return self.recv_from()
 
-    def doit4ids(self, ids, cmd: dict):
+    def doit4ids(self, ids, cmd):
         ''' send cmds '''
-        cmd['board_id_list'] = ids
-        for c in gen_cmds([cmd]):
+        if is_dataclass(cmd):
+            _cmd = asdict(cmd)
+        else:
+            _cmd = cmd
+        _cmd['board_id_list'] = ids
+        for c in gen_cmds([_cmd]):
             self.send_to(c)
             ''' wait reply ... blocking'''
             self.recv_from()

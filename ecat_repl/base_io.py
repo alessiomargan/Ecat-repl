@@ -1,8 +1,28 @@
 import math
 
-master_cmd_stop = {"type": "ECAT_MASTER_CMD", "ecat_master_cmd": {"type": "STOP_MASTER"}}
-master_cmd_start = {"type": "ECAT_MASTER_CMD", "ecat_master_cmd": {"type": "START_MASTER"}}
-master_cmd_get_slave_descr = {"type": "ECAT_MASTER_CMD", "ecat_master_cmd": {"type": "GET_SLAVES_DESCR"}}
+from ecat_repl import MasterCmd, CtrlCmd
+
+controller_type = {
+    "00_idle_ctrl":        0x00,
+    "3B_motor_pos_ctrl":   0x3B,
+    "3C_link_pos_ctrl":    0x3C,
+    "D4_impedance_ctrl":   0xD4,
+    "71_motor_speed_ctrl": 0x71,
+    "CC_current_ctrl":     0xCC,
+}
+
+master_cmd_stop = MasterCmd(u'STOP_MASTER')
+master_cmd_start = MasterCmd(u'START_MASTER')
+master_cmd_get_slave_descr = MasterCmd(u'GET_SLAVES_DESCR')
+
+ctrl_cmd_start = CtrlCmd(u'CTRL_CMD_START')
+ctrl_cmd_stop = CtrlCmd(u'CTRL_CMD_STOP')
+ctrl_cmd_fan = CtrlCmd(u'CTRL_FAN')
+ctrl_cmd_led = CtrlCmd(u'CTRL_LED')
+ctrl_cmd_set_home = CtrlCmd(u'CTRL_SET_HOME')
+ctrl_cmd_set_zero = CtrlCmd(u'CTRL_SET_ZERO_POSITION')
+ctrl_cmd_set_min_pos = CtrlCmd(u'CTRL_SET_MIN_POSITION')
+ctrl_cmd_set_max_pos = CtrlCmd(u'CTRL_SET_MAX_POSITION')
 
 
 def gen_cmds(cmds: list):
@@ -22,70 +42,6 @@ def gen_cmds(cmds: list):
         else:
             yield cmd
 
-
-def ctrl_cmd_start(bId=-1, value=0, gains={}):
-    _ctrl_cmd_start = {"type": "CTRL_CMD", "ctrl_cmd": {"type": "CTRL_CMD_START", "board_id": -1}}
-    if bId > 0:
-        _ctrl_cmd_start["ctrl_cmd"]["board_id"] = bId
-    if value in [0x3B, 0x3C, 0xD4, 0x71, 0xCC]:
-        _ctrl_cmd_start["ctrl_cmd"]["value"] = value
-    if gains:
-        _ctrl_cmd_start["ctrl_cmd"]["gains"] = gains
-    return _ctrl_cmd_start
-
-
-def ctrl_cmd_stop(bId=-1):
-    _ctrl_cmd_stop = {"type": "CTRL_CMD", "ctrl_cmd": {"type": "CTRL_CMD_STOP", "board_id": -1}}
-    if bId > 0:
-        _ctrl_cmd_stop["ctrl_cmd"]["board_id"] = bId
-    return _ctrl_cmd_stop
-
-
-def ctrl_cmd_fan(bId=-1, value=0):
-    _ctrl_cmd_fan = {"type": "CTRL_CMD", "ctrl_cmd": {"type": "CTRL_FAN", "value": 1, "board_id": -1}}
-    if bId > 0:
-        _ctrl_cmd_fan["ctrl_cmd"]["board_id"] = bId
-    _ctrl_cmd_fan["ctrl_cmd"]["value"] = value
-    return _ctrl_cmd_fan
-
-
-def ctrl_cmd_led(bId=-1, value=0):
-    _ctrl_cmd_led = {"type": "CTRL_CMD", "ctrl_cmd": {"type": "CTRL_LED", "value": 1, "board_id": -1}}
-    if bId > 0:
-        _ctrl_cmd_led["ctrl_cmd"]["board_id"] = bId
-    _ctrl_cmd_led["ctrl_cmd"]["value"] = value
-    return _ctrl_cmd_led
-
-
-def ctrl_cmd_set_home(bId=-1, value=0):
-    _ctrl_cmd_set_home = {"type": "CTRL_CMD", "ctrl_cmd": {"type": "CTRL_SET_HOME", "value": 0, "board_id": -1}}
-    if bId > 0:
-        _ctrl_cmd_set_home["ctrl_cmd"]["board_id"] = bId
-    _ctrl_cmd_set_home["ctrl_cmd"]["value"] = value
-    return _ctrl_cmd_set_home
-
-
-def ctrl_cmd_set_zero(bId=-1, value=math.pi):
-    _ctrl_cmd_set_zero = {"type": "CTRL_CMD",
-                          "ctrl_cmd": {"type": "CTRL_SET_ZERO_POSITION", "value": math.pi, "board_id": -1}}
-    if bId > 0:
-        _ctrl_cmd_set_zero["ctrl_cmd"]["board_id"] = bId
-    _ctrl_cmd_set_zero["ctrl_cmd"]["value"] = value
-    return _ctrl_cmd_set_zero
-
-
-def ctrl_cmd_set_min_pos(bId=-1):
-    _ctrl_cmd_set_min_pos = {"type": "CTRL_CMD", "ctrl_cmd": {"type": "CTRL_SET_MIN_POSITION", "board_id": -1}}
-    if bId > 0:
-        _ctrl_cmd_set_min_pos["ctrl_cmd"]["board_id"] = bId
-    return _ctrl_cmd_set_min_pos
-
-
-def ctrl_cmd_set_max_pos(bId=-1):
-    _ctrl_cmd_set_max_pos = {"type": "CTRL_CMD", "ctrl_cmd": {"type": "CTRL_SET_MAX_POSITION", "board_id": -1}}
-    if bId > 0:
-        _ctrl_cmd_set_max_pos["ctrl_cmd"]["board_id"] = bId
-    return _ctrl_cmd_set_max_pos
 
 
 def flash_cmd_save2flash(bId=-1):

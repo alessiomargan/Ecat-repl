@@ -11,10 +11,16 @@
 
 __version__ = "0.1.dev"
 
-from . zmsg_io import ZmsgIO
-from . pipe_io import PipeIO
+from . base_cmd import (
+    MasterCmd,
+    FoeMaster,
+    CtrlCmd,
+)
 from . base_io import (
     gen_cmds,
+    master_cmd_start,
+    master_cmd_stop,
+    master_cmd_get_slave_descr,
     ctrl_cmd_start,
     ctrl_cmd_stop,
     ctrl_cmd_fan,
@@ -24,5 +30,6 @@ from . base_io import (
     ctrl_cmd_set_min_pos,
     ctrl_cmd_set_max_pos,
 )
-
+from . zmsg_io import ZmsgIO
+from . pipe_io import PipeIO
 from ecat_repl import repl_cmd_pb2 as repl_cmd
