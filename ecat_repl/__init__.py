@@ -15,6 +15,7 @@ from . base_cmd import (
     MasterCmd,
     FoeMaster,
     CtrlCmd,
+    SdoCmd,
 )
 from . base_io import (
     gen_cmds,

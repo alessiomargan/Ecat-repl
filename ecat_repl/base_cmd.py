@@ -1,4 +1,5 @@
 from dataclasses import dataclass, field, asdict, InitVar
+from typing import List
 
 # https://github.com/konradhalas/dacite
 # import dacite
@@ -50,6 +51,26 @@ class CtrlCmd:
 
         self.ctrl_cmd.gains = _Gains(*gains)
         return self
+
+
+# SdoCmd ###
+
+@dataclass
+class _WrSdo:
+    name: str
+    value: float
+
+
+@dataclass
+class SdoCmd:
+    board_id: int = -1
+    rd_sdo: List[str] = field(default_factory=list)
+    wr_sdo: List[_WrSdo] = field(default_factory=list)
+
+    def set_bid(self, bid):
+        self.board_id = bid
+        return self
+
 
 # FoeMaster ###
 
