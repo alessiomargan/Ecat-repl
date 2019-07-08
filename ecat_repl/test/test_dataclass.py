@@ -8,10 +8,9 @@ master_cmd_get_slave_descr = MasterCmd(u'GET_SLAVES_DESCR')
 ctrl_cmd_start = CtrlCmd(u'CTRL_CMD_START')
 ctrl_cmd_stop = CtrlCmd(u'CTRL_CMD_STOP')
 
-cent_AC_m3 = {"type": "FOE_MASTER",
-              "foe_master": {"filename": "../examples/fw_update/fw_test/cent_AC_m3.bin",
-                             "password": 0xA550, "mcu_type": "m3",
-                             "slave_pos": 1}}
+cent_AC_m3 = FoeMaster("../examples/fw_update/fw_test/cent_AC_m3.bin", 0xA550, "m3", 1)
+
+
 
 
 

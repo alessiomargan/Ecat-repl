@@ -9,6 +9,28 @@ from typing import List
 # In Python returning `self` in the instance method is one way to implement the fluent pattern.
 
 
+# FlashCmd ###
+
+@dataclass
+class _FlashCmd:
+    type: str
+    board_id: int = -1
+
+
+@dataclass
+class FlashCmd:
+    flash_cmd_type: InitVar[str]
+    flash_cmd: _FlashCmd = field(default_factory=dict, init=False)
+    type: str = u'FLASH_CMD'
+
+    def __post_init__(self, flash_cmd_type):
+        self.flash_cmd = _FlashCmd(flash_cmd_type)
+
+    def set_bid(self, bid):
+        self.flash_cmd.board_id = bid
+        return self
+
+
 # CtrlCmd ###
 
 @dataclass
@@ -48,7 +70,6 @@ class CtrlCmd:
         return self
 
     def set_gains(self, *gains):
-
         self.ctrl_cmd.gains = _Gains(*gains)
         return self
 
@@ -60,15 +81,27 @@ class _WrSdo:
     name: str
     value: float
 
+@dataclass
+class _SdoCmd:
+    board_id: int = -1
+    rd_sdo: List[str] = field(default_factory=list)
+    wr_sdo: _WrSdo = field(default_factory=dict)
+
+    def __post_init__(self):
+        self.wr_sdo = [_WrSdo(n, v) for (n, v) in self.wr_sdo.items()]
 
 @dataclass
 class SdoCmd:
-    board_id: int = -1
-    rd_sdo: List[str] = field(default_factory=list)
-    wr_sdo: List[_WrSdo] = field(default_factory=list)
+    rd_sdo: InitVar[List[str]]
+    wr_sdo: InitVar[dict]
+    slave_sdo_cmd: _SdoCmd = field(default_factory=dict, init=False)
+    type: str = u'SLAVE_SDO_CMD'
+
+    def __post_init__(self, rd_sdo, wr_sdo):
+        self.slave_sdo_cmd = _SdoCmd(rd_sdo=rd_sdo, wr_sdo=wr_sdo)
 
     def set_bid(self, bid):
-        self.board_id = bid
+        self.slave_sdo_cmd.board_id = bid
         return self
 
 
@@ -93,6 +126,10 @@ class FoeMaster:
             self.foe_master = _FoeMaster(**foe_master_init)
         else:
             self.foe_master = _FoeMaster(*foe_master_init)
+
+    def set_bid(self, bid):
+        self.foe_master.board_id = bid
+        return self
 
 
 # MasterCmd ###

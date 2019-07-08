@@ -14,6 +14,7 @@ __version__ = "0.1.dev"
 from . base_cmd import (
     MasterCmd,
     FoeMaster,
+    FlashCmd,
     CtrlCmd,
     SdoCmd,
 )
