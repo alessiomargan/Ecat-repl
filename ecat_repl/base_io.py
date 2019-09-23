@@ -1,6 +1,6 @@
 import math
 
-from ecat_repl import MasterCmd, CtrlCmd
+from ecat_repl import MasterCmd, CtrlCmd,FlashCmd
 
 controller_type = {
     "00_idle_ctrl":        0x00,
@@ -15,6 +15,12 @@ master_cmd_stop = MasterCmd(u'STOP_MASTER')
 master_cmd_start = MasterCmd(u'START_MASTER')
 master_cmd_get_slave_descr = MasterCmd(u'GET_SLAVES_DESCR')
 
+#
+flash_cmd_save_flash = FlashCmd(u'SAVE_PARAMS_TO_FLASH')
+flash_cmd_load_default = FlashCmd(u'LOAD_DEFAULT_PARAMS')
+flash_cmd_load_flash = FlashCmd(u'LOAD_PARAMS_FROM_FLASH')
+
+# Motor
 ctrl_cmd_start = CtrlCmd(u'CTRL_CMD_START')
 ctrl_cmd_stop = CtrlCmd(u'CTRL_CMD_STOP')
 ctrl_cmd_fan = CtrlCmd(u'CTRL_FAN')
@@ -23,6 +29,13 @@ ctrl_cmd_set_home = CtrlCmd(u'CTRL_SET_HOME')
 ctrl_cmd_set_zero = CtrlCmd(u'CTRL_SET_ZERO_POSITION')
 ctrl_cmd_set_min_pos = CtrlCmd(u'CTRL_SET_MIN_POSITION')
 ctrl_cmd_set_max_pos = CtrlCmd(u'CTRL_SET_MAX_POSITION')
+
+# Ft6
+ctrl_cmd_dac_tune = CtrlCmd(u'CTRL_DAC_TUNE')
+
+#
+ctrl_cmd_test_error = CtrlCmd(u'CTRL_TEST_ERROR')
+ctrl_cmd_test_done = CtrlCmd(u'CTRL_TEST_DONE')
 
 
 def gen_cmds(cmds: list):
@@ -43,9 +56,3 @@ def gen_cmds(cmds: list):
             yield cmd
 
 
-
-def flash_cmd_save2flash(bId=-1):
-    _flash_cmd_save2flash = {"type": "FLASH_CMD", "flash_cmd": {"type": "SAVE_PARAMS_TO_FLASH", "board_id": -1}}
-    if bId > 0:
-        _flash_cmd_save2flash["flash_cmd"]["board_id"] = bId
-    return _flash_cmd_save2flash

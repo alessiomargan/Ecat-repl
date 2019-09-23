@@ -23,6 +23,11 @@ from . base_io import (
     master_cmd_start,
     master_cmd_stop,
     master_cmd_get_slave_descr,
+    #
+    flash_cmd_load_default,
+    flash_cmd_save_flash,
+    flash_cmd_load_default,
+    #
     ctrl_cmd_start,
     ctrl_cmd_stop,
     ctrl_cmd_fan,
@@ -31,6 +36,11 @@ from . base_io import (
     ctrl_cmd_set_zero,
     ctrl_cmd_set_min_pos,
     ctrl_cmd_set_max_pos,
+    #
+    ctrl_cmd_dac_tune,
+    #
+    ctrl_cmd_test_error,
+    ctrl_cmd_test_done,
 )
 from . zmsg_io import ZmsgIO
 from . pipe_io import PipeIO

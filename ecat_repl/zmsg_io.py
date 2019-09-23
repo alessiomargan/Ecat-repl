@@ -66,8 +66,8 @@ class ZmsgIO(object):
         self.socket.connect("tcp://"+uri)
         self.debug = False
 
-    def send_to(self, cmd: dict):
-        "dict -> protobuf -> serialize to string -> send through socket"
+    def _send_to(self, cmd: dict):
+        """dict -> protobuf -> serialize to string -> send through socket"""
         cmd_pb = dict_to_protobuf(repl_cmd.Repl_cmd, cmd)
         if self.debug:
             print(cmd_pb)
@@ -77,7 +77,7 @@ class ZmsgIO(object):
             cmd_msg = EscCmdMessage(cmd_pb.SerializeToString())
         return cmd_msg.send(self.socket)
 
-    def recv_from(self):
+    def _recv_from(self):
         rep_data = self.socket.recv()
         rep = repl_cmd.Cmd_reply()
         # fill protobuf mesg
@@ -92,26 +92,26 @@ class ZmsgIO(object):
         return d
 
     def doit(self, cmd):
-        ''' send cmd '''
+        """ send cmd """
         if is_dataclass(cmd):
             _cmd = asdict(cmd)
         else:
             _cmd = cmd
         if self.debug:
             print(_cmd)
-        self.send_to(_cmd)
+        self._send_to(_cmd)
         ''' wait reply ... blocking'''
-        return self.recv_from()
+        return self._recv_from()
 
     def doit4ids(self, ids, cmd):
-        ''' send cmds '''
+        """ send cmds """
         if is_dataclass(cmd):
             _cmd = asdict(cmd)
         else:
             _cmd = cmd
         _cmd['board_id_list'] = ids
         for c in gen_cmds([_cmd]):
-            self.send_to(c)
+            self._send_to(c)
             ''' wait reply ... blocking'''
-            self.recv_from()
+            self._recv_from()
         return 
