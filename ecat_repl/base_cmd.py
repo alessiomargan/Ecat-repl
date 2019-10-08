@@ -97,8 +97,8 @@ class SdoCmd:
     slave_sdo_cmd: _SdoCmd = field(default_factory=dict, init=False)
     type: str = u'SLAVE_SDO_CMD'
 
-    def __post_init__(self, rd_sdo, wr_sdo):
-        self.slave_sdo_cmd = _SdoCmd(rd_sdo=rd_sdo, wr_sdo=wr_sdo)
+    def __post_init__(self, _rd_sdo, _wr_sdo):
+        self.slave_sdo_cmd = _SdoCmd(rd_sdo=_rd_sdo, wr_sdo=_wr_sdo)
 
     def set_bid(self, bid):
         self.slave_sdo_cmd.board_id = bid
@@ -127,8 +127,8 @@ class FoeMaster:
         else:
             self.foe_master = _FoeMaster(*foe_master_init)
 
-    def set_bid(self, bid):
-        self.foe_master.board_id = bid
+    def set_slave_pos(self, bid):
+        self.foe_master.slave_pos = bid
         return self
 
 
