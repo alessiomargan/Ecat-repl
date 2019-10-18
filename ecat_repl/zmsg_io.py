@@ -104,7 +104,7 @@ class ZmsgIO(object):
         return self._recv_from()
 
     def doit4ids(self, ids, cmd):
-        """ send cmds """
+        """ for each id send cmd """
         if is_dataclass(cmd):
             _cmd = asdict(cmd)
         else:
@@ -113,5 +113,4 @@ class ZmsgIO(object):
         for c in gen_cmds([_cmd]):
             self._send_to(c)
             ''' wait reply ... blocking'''
-            self._recv_from()
-        return 
+            yield self._recv_from()

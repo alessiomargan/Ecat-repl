@@ -32,6 +32,7 @@ from . base_io import (
     ctrl_cmd_stop,
     ctrl_cmd_fan,
     ctrl_cmd_led,
+    ctrl_cmd_run_torque_calib,
     ctrl_cmd_set_home,
     ctrl_cmd_set_zero,
     ctrl_cmd_set_min_pos,

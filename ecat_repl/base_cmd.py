@@ -79,7 +79,7 @@ class CtrlCmd:
 @dataclass
 class _WrSdo:
     name: str
-    value: float
+    value: str
 
 @dataclass
 class _SdoCmd:
@@ -88,7 +88,7 @@ class _SdoCmd:
     wr_sdo: _WrSdo = field(default_factory=dict)
 
     def __post_init__(self):
-        self.wr_sdo = [_WrSdo(n, v) for (n, v) in self.wr_sdo.items()]
+        self.wr_sdo = [_WrSdo(n, str(v)) for (n, v) in self.wr_sdo.items()]
 
 @dataclass
 class SdoCmd:
