@@ -30,6 +30,10 @@ ctrl_cmd_set_home = CtrlCmd(u'CTRL_SET_HOME')
 ctrl_cmd_set_zero = CtrlCmd(u'CTRL_SET_ZERO_POSITION')
 ctrl_cmd_set_min_pos = CtrlCmd(u'CTRL_SET_MIN_POSITION')
 ctrl_cmd_set_max_pos = CtrlCmd(u'CTRL_SET_MAX_POSITION')
+ctrl_cmd_set_position = CtrlCmd(u'CTRL_SET_POSITION')
+ctrl_cmd_set_velocity = CtrlCmd(u'CTRL_SET_VELOCITY')
+ctrl_cmd_set_torque = CtrlCmd(u'CTRL_SET_TORQUE')
+ctrl_cmd_set_current = CtrlCmd(u'CTRL_SET_CURRENT')
 
 # Ft6
 ctrl_cmd_dac_tune = CtrlCmd(u'CTRL_DAC_TUNE')
