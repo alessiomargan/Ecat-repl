@@ -104,6 +104,37 @@ class SdoCmd:
         self.slave_sdo_cmd.board_id = bid
         return self
 
+# SdoInfo ###
+
+@dataclass
+class _Objd:
+    index: int
+    subindex: int
+    datatype: int
+    bitlength: int
+    access: str
+    name: str
+
+@dataclass
+class _SdoInfo:
+    type: str
+    board_id: int = -1
+    #slave_objd: _Objd = field(default_factory=dict)
+
+@dataclass
+class SdoInfo:
+    sdo_info_type: InitVar[str]
+    slave_sdo_info: _SdoInfo = field(default_factory=dict, init=False)
+    type: str = u'SLAVE_SDO_INFO'
+
+    def __post_init__(self, sdo_info_type):
+        self.slave_sdo_info = _SdoInfo(sdo_info_type)
+
+    def set_bid(self, bid):
+        self.slave_sdo_info.board_id = bid
+        return self
+
+
 
 # FoeMaster ###
 

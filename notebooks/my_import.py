@@ -1,5 +1,5 @@
 import socket
-
+import yaml
 import ipywidgets.widgets as widgets
 from IPython.display import display
 
@@ -7,6 +7,8 @@ from ecat_repl import ZmsgIO
 from ecat_repl import FoeMaster
 from ecat_repl import CtrlCmd
 from ecat_repl import SdoCmd
+from ecat_repl import SdoInfo
+
 from ecat_repl import (
     master_cmd_stop,
     master_cmd_start,
@@ -14,7 +16,7 @@ from ecat_repl import (
     #
     flash_cmd_load_default,
     flash_cmd_save_flash,
-    flash_cmd_load_default,
+    flash_cmd_load_flash,
     #
     ctrl_cmd_start,
     ctrl_cmd_stop,

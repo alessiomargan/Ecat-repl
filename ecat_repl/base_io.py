@@ -1,6 +1,6 @@
 import math
 
-from ecat_repl import MasterCmd, CtrlCmd,FlashCmd
+from ecat_repl import MasterCmd, CtrlCmd, FlashCmd
 
 controller_type = {
     "00_idle_ctrl":        0x00,

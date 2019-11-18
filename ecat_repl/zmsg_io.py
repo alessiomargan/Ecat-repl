@@ -63,6 +63,7 @@ class ZmsgIO(object):
         #  Prepare our context and sockets
         self.ctx = zmq.Context()
         self.socket = self.ctx.socket(zmq.REQ)
+        self.socket.setsockopt(zmq.RCVTIMEO, 250)
         self.socket.connect("tcp://"+uri)
         self.debug = False
 

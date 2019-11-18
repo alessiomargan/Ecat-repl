@@ -17,6 +17,7 @@ from . base_cmd import (
     FlashCmd,
     CtrlCmd,
     SdoCmd,
+    SdoInfo,
 )
 from . base_io import (
     gen_cmds,
@@ -26,7 +27,7 @@ from . base_io import (
     #
     flash_cmd_load_default,
     flash_cmd_save_flash,
-    flash_cmd_load_default,
+    flash_cmd_load_flash,
     #
     ctrl_cmd_start,
     ctrl_cmd_stop,
