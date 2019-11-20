@@ -94,10 +94,7 @@ class ZmsgIO(object):
 
     def doit(self, cmd):
         """ send cmd """
-        if is_dataclass(cmd):
-            _cmd = asdict(cmd)
-        else:
-            _cmd = cmd
+        _cmd = asdict(cmd) if is_dataclass(cmd) else cmd
         if self.debug:
             print(_cmd)
         self._send_to(_cmd)
@@ -106,10 +103,7 @@ class ZmsgIO(object):
 
     def doit4ids(self, ids, cmd):
         """ for each id send cmd """
-        if is_dataclass(cmd):
-            _cmd = asdict(cmd)
-        else:
-            _cmd = cmd
+        _cmd = asdict(cmd) if is_dataclass(cmd) else cmd
         _cmd['board_id_list'] = ids
         for c in gen_cmds([_cmd]):
             self._send_to(c)

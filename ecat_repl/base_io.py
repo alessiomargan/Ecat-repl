@@ -21,7 +21,7 @@ flash_cmd_load_default = FlashCmd(u'LOAD_DEFAULT_PARAMS')
 flash_cmd_load_flash = FlashCmd(u'LOAD_PARAMS_FROM_FLASH')
 
 # Motor
-ctrl_cmd_start = CtrlCmd(u'CTRL_CMD_START')
+ctrl_cmd_start = lambda: CtrlCmd(u'CTRL_CMD_START')
 ctrl_cmd_stop = CtrlCmd(u'CTRL_CMD_STOP')
 ctrl_cmd_fan = CtrlCmd(u'CTRL_FAN')
 ctrl_cmd_led = CtrlCmd(u'CTRL_LED')

@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field, asdict, InitVar
 from typing import List
+import copy
 
 # https://github.com/konradhalas/dacite
 # import dacite
@@ -36,12 +37,11 @@ class FlashCmd:
 @dataclass
 class _Gains:
     type: str
-    kp: float
-    ki: float
-    kd: float
-    kkp: float = 0.0
-    kki: float = 0.0
-    kkd: float = 0.0
+    pos_kp: float
+    pos_kd: float
+    tor_kp: float = 0.0
+    tor_ki: float = 0.0
+    tor_kd: float = 0.0
 
 
 @dataclass
@@ -62,14 +62,17 @@ class CtrlCmd:
         self.ctrl_cmd = _CtrlCmd(ctrl_cmd_type)
 
     def set_bid(self, bid):
+        #cp = copy.deepcopy(self)
         self.ctrl_cmd.board_id = bid
         return self
 
     def set_value(self, value):
+        #cp = copy.deepcopy(self)
         self.ctrl_cmd.value = value
         return self
 
     def set_gains(self, *gains):
+        #cp = copy.deepcopy(self)
         self.ctrl_cmd.gains = _Gains(*gains)
         return self
 
