@@ -50,7 +50,7 @@ def gen_cmds(cmds: list):
             id_list = cmd['board_id_list']
             del cmd['board_id_list']
             for _id in id_list:
-                for key in ['ctrl_cmd', 'flash_cmd', 'trajectory_cmd']:
+                for key in ['ctrl_cmd', 'flash_cmd', 'trajectory_cmd', 'slave_sdo_cmd']:
                     if key in cmd:
                         cmd[key]['board_id'] = _id
                         break

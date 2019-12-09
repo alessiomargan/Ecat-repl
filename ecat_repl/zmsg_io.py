@@ -58,17 +58,22 @@ class EcatMasterCmdMessage(MultiPartMessage):
 
 class ZmsgIO(object):
 
-    def __init__(self, uri):
+    REQUEST_TIMEOUT = 10000
 
+    def __init__(self, uri):
         #  Prepare our context and sockets
         self.ctx = zmq.Context()
-        self.socket = self.ctx.socket(zmq.REQ)
-        self.socket.setsockopt(zmq.RCVTIMEO, 250)
-        self.socket.connect("tcp://"+uri)
+        self.uri = uri
         self.debug = False
 
-    def _send_to(self, cmd: dict):
-        """dict -> protobuf -> serialize to string -> send through socket"""
+    def _try_request(self, uri: str, cmd: dict):
+        """ Model One: Simple Retry and Failover """
+        client = self.ctx.socket(zmq.REQ)
+        client.setsockopt(zmq.LINGER, 0)  # Terminate early
+        client.connect("tcp://" + uri)
+        # ##############################################################
+        # prepare msg to send
+        # dict -> protobuf -> serialize to string -> send through socket
         cmd_pb = dict_to_protobuf(repl_cmd.Repl_cmd, cmd)
         if self.debug:
             print(cmd_pb)
@@ -76,20 +81,28 @@ class ZmsgIO(object):
             cmd_msg = EcatMasterCmdMessage(cmd_pb.SerializeToString())
         else:
             cmd_msg = EscCmdMessage(cmd_pb.SerializeToString())
-        return cmd_msg.send(self.socket)
-
-    def _recv_from(self):
-        rep_data = self.socket.recv()
-        rep = repl_cmd.Cmd_reply()
-        # fill protobuf mesg
-        rep.ParseFromString(rep_data)
-        #print(rep)
-        d = protobuf_to_dict(rep)
-        yaml_msg = yaml.safe_load(d['msg'])
-        json_msg = json.dumps(yaml_msg)
-        #print(json_msg)
-        if d['type'] == 'NACK':
-            print(rep)
+        cmd_msg.send(client)
+        # ##############################################################
+        #
+        poll = zmq.Poller()
+        poll.register(client, zmq.POLLIN)
+        socks = dict(poll.poll(ZmsgIO.REQUEST_TIMEOUT))
+        if socks.get(client) == zmq.POLLIN:
+            rep_data = client.recv()
+            rep = repl_cmd.Cmd_reply()
+            # fill protobuf mesg
+            rep.ParseFromString(rep_data)
+            # print(rep)
+            d = protobuf_to_dict(rep)
+            yaml_msg = yaml.safe_load(d['msg'])
+            json_msg = json.dumps(yaml_msg)
+            # print(json_msg)
+            if d['type'] == 'NACK':
+                print(rep)
+        else:
+            d = {}
+        poll.unregister(client)
+        client.close()
         return d
 
     def doit(self, cmd):
@@ -97,15 +110,11 @@ class ZmsgIO(object):
         _cmd = asdict(cmd) if is_dataclass(cmd) else cmd
         if self.debug:
             print(_cmd)
-        self._send_to(_cmd)
-        ''' wait reply ... blocking'''
-        return self._recv_from()
+        return self._try_request(self.uri, _cmd)
 
     def doit4ids(self, ids, cmd):
         """ for each id send cmd """
         _cmd = asdict(cmd) if is_dataclass(cmd) else cmd
         _cmd['board_id_list'] = ids
         for c in gen_cmds([_cmd]):
-            self._send_to(c)
-            ''' wait reply ... blocking'''
-            yield self._recv_from()
+            yield self._try_request(self.uri, _cmd)
