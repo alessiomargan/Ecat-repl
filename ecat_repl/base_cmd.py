@@ -80,7 +80,7 @@ class CtrlCmd:
 # SdoCmd ###
 
 @dataclass
-class _WrSdo:
+class _KWstr:
     name: str
     value: str
 
@@ -88,10 +88,10 @@ class _WrSdo:
 class _SdoCmd:
     board_id: int = -1
     rd_sdo: List[str] = field(default_factory=list)
-    wr_sdo: _WrSdo = field(default_factory=dict)
+    wr_sdo: _KWstr = field(default_factory=dict)
 
     def __post_init__(self):
-        self.wr_sdo = [_WrSdo(n, str(v)) for (n, v) in self.wr_sdo.items()]
+        self.wr_sdo = [_KWstr(n, str(v)) for (n, v) in self.wr_sdo.items()]
 
 @dataclass
 class SdoCmd:
@@ -171,7 +171,7 @@ class FoeMaster:
 @dataclass
 class _MasterCmd:
     type: str
-
+    args: _KWstr = field(default_factory=dict)
 
 @dataclass
 class MasterCmd:
@@ -182,5 +182,8 @@ class MasterCmd:
     def __post_init__(self, master_cmd_type):
         self.ecat_master_cmd = _MasterCmd(master_cmd_type)
 
+    def set_args(self, args: dict):
+        self.ecat_master_cmd.args = [_KWstr(n, str(v)) for (n, v) in args.items()]
+        return self
 
 
