@@ -37,6 +37,8 @@ ctrl_cmd_set_current = CtrlCmd(u'CTRL_SET_CURRENT')
 
 # Ft6
 ctrl_cmd_dac_tune = CtrlCmd(u'CTRL_DAC_TUNE')
+ctrl_cmd_get_adc = CtrlCmd(u'CTRL_GET_ADC')
+ctrl_cmd_set_dac = CtrlCmd(u'CTRL_SET_DAC')
 
 #
 ctrl_cmd_test_error = CtrlCmd(u'CTRL_TEST_ERROR')
