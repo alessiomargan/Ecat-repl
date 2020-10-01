@@ -14,16 +14,16 @@ from google.protobuf import descriptor_pb2
 _sym_db = _symbol_database.Default()
 
 
-from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
+from . import header_pb2 as header__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='repl_cmd.proto',
   package='iit.advr',
   syntax='proto2',
-  serialized_pb=_b('\n\x0erepl_cmd.proto\x12\x08iit.advr\x1a\x1fgoogle/protobuf/timestamp.proto\"R\n\x06Header\x12\x0e\n\x06str_id\x18\x01 \x01(\t\x12)\n\x05stamp\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\r\n\x05index\x18\x03 \x01(\x05\" \n\x08Vector2d\x12\t\n\x01x\x18\x01 \x02(\x01\x12\t\n\x01y\x18\x02 \x02(\x01\"\xaf\x01\n\x05Gains\x12\"\n\x04type\x18\x01 \x02(\x0e\x32\x14.iit.advr.Gains.Type\x12\x0e\n\x06pos_kp\x18\x02 \x02(\x01\x12\x0e\n\x06pos_kd\x18\x03 \x02(\x01\x12\x0e\n\x06tor_kp\x18\x04 \x01(\x01\x12\x0e\n\x06tor_ki\x18\x05 \x01(\x01\x12\x0e\n\x06tor_kd\x18\x06 \x01(\x01\"2\n\x04Type\x12\x0c\n\x08POSITION\x10;\x12\x0c\n\x08VELOCITY\x10q\x12\x0e\n\tIMPEDANCE\x10\xd4\x01\"p\n\nSlave_objd\x12\r\n\x05index\x18\x01 \x02(\x05\x12\x10\n\x08subindex\x18\x02 \x02(\x05\x12\x10\n\x08\x64\x61tatype\x18\x03 \x02(\x05\x12\x11\n\tbitlength\x18\x04 \x02(\x05\x12\x0e\n\x06\x61\x63\x63\x65ss\x18\x05 \x02(\x05\x12\x0c\n\x04name\x18\x06 \x02(\t\"(\n\tKeyValStr\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\r\n\x05value\x18\x02 \x02(\t\"\xb7\x03\n\x0eTrajectory_cmd\x12+\n\x04type\x18\x01 \x02(\x0e\x32\x1d.iit.advr.Trajectory_cmd.Type\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x10\n\x08\x62oard_id\x18\x03 \x02(\x05\x12\x37\n\nsmooth_par\x18\x04 \x01(\x0b\x32#.iit.advr.Trajectory_cmd.Smooth_par\x12\x37\n\nperiod_par\x18\x05 \x01(\x0b\x32#.iit.advr.Trajectory_cmd.Period_par\x12\x37\n\nhoming_par\x18\x06 \x01(\x0b\x32#.iit.advr.Trajectory_cmd.Homing_par\x1a\x17\n\nHoming_par\x12\t\n\x01x\x18\x01 \x03(\x01\x1a\x44\n\nPeriod_par\x12\x0c\n\x04\x66req\x18\x01 \x02(\x01\x12\x0c\n\x04\x61mpl\x18\x02 \x02(\x01\x12\x0c\n\x04teta\x18\x03 \x02(\x01\x12\x0c\n\x04secs\x18\x04 \x02(\x01\x1a\"\n\nSmooth_par\x12\t\n\x01x\x18\x01 \x03(\x01\x12\t\n\x01y\x18\x02 \x03(\x01\"*\n\x04Type\x12\n\n\x06HOMING\x10\x01\x12\x08\n\x04SINE\x10\x02\x12\x0c\n\x08SMOOTHER\x10\x03\"s\n\rTrj_queue_cmd\x12*\n\x04type\x18\x01 \x02(\x0e\x32\x1c.iit.advr.Trj_queue_cmd.Type\x12\x11\n\ttrj_names\x18\x02 \x03(\t\"#\n\x04Type\x12\x0c\n\x08PUSH_QUE\x10\x01\x12\r\n\tEMPTY_QUE\x10\x02\"\n\n\x08Repl_hdr\"\xe3\x04\n\x08\x43trl_cmd\x12%\n\x04type\x18\x01 \x02(\x0e\x32\x17.iit.advr.Ctrl_cmd.Type\x12\x10\n\x08\x62oard_id\x18\x02 \x02(\x05\x12\r\n\x05value\x18\x03 \x01(\x02\x12\x1e\n\x05gains\x18\x04 \x01(\x0b\x32\x0f.iit.advr.Gains\"\xee\x03\n\x04Type\x12\x12\n\x0e\x43TRL_TEST_DONE\x10\x01\x12\x13\n\x0f\x43TRL_TEST_ERROR\x10\x02\x12\x11\n\rCTRL_DAC_TUNE\x10\x03\x12\x1b\n\x17\x43TRL_REMOVE_TORQUE_OFFS\x10\x04\x12\x1a\n\x16\x43TRL_SET_ZERO_POSITION\x10\x05\x12\x0c\n\x08\x43TRL_FAN\x10\x06\x12\x0c\n\x08\x43TRL_LED\x10\x07\x12\x10\n\x0c\x43TRL_SANDBOX\x10\x08\x12\x13\n\x0f\x43TRL_REF_FILTER\x10\t\x12\x12\n\x0e\x43TRL_POWER_MOD\x10\n\x12\x12\n\x0e\x43TRL_CMD_START\x10\x0b\x12\x11\n\rCTRL_CMD_STOP\x10\x0c\x12\x11\n\rCTRL_SET_HOME\x10\r\x12\x19\n\x15\x43TRL_SET_MIN_POSITION\x10\x0e\x12\x19\n\x15\x43TRL_SET_MAX_POSITION\x10\x0f\x12\x19\n\x15\x43TRL_RUN_TORQUE_CALIB\x10\x10\x12\x12\n\x0e\x43TRL_SET_GAINS\x10\x11\x12\x15\n\x11\x43TRL_SET_POSITION\x10\x12\x12\x15\n\x11\x43TRL_SET_VELOCITY\x10\x13\x12\x13\n\x0f\x43TRL_SET_TORQUE\x10\x14\x12\x14\n\x10\x43TRL_SET_CURRENT\x10\x15\x12\x10\n\x0c\x43TRL_GET_ADC\x10\x16\x12\x10\n\x0c\x43TRL_SET_DAC\x10\x17\"\x9c\x01\n\tFlash_cmd\x12&\n\x04type\x18\x01 \x02(\x0e\x32\x18.iit.advr.Flash_cmd.Type\x12\x10\n\x08\x62oard_id\x18\x02 \x02(\x05\"U\n\x04Type\x12\x18\n\x14SAVE_PARAMS_TO_FLASH\x10\x01\x12\x1a\n\x16LOAD_PARAMS_FROM_FLASH\x10\x02\x12\x17\n\x13LOAD_DEFAULT_PARAMS\x10\x03\"V\n\rSlave_SDO_cmd\x12\x10\n\x08\x62oard_id\x18\x01 \x02(\x05\x12\x0e\n\x06rd_sdo\x18\x02 \x03(\t\x12#\n\x06wr_sdo\x18\x03 \x03(\x0b\x32\x13.iit.advr.KeyValStr\"s\n\x0eSlave_SDO_info\x12+\n\x04type\x18\x01 \x02(\x0e\x32\x1d.iit.advr.Slave_SDO_info.Type\x12\x10\n\x08\x62oard_id\x18\x02 \x02(\x05\"\"\n\x04Type\x12\x0c\n\x08SDO_NAME\x10\x01\x12\x0c\n\x08SDO_OBJD\x10\x02\"\xa3\x01\n\x0f\x45\x63\x61t_Master_cmd\x12,\n\x04type\x18\x01 \x02(\x0e\x32\x1e.iit.advr.Ecat_Master_cmd.Type\x12!\n\x04\x61rgs\x18\x02 \x03(\x0b\x32\x13.iit.advr.KeyValStr\"?\n\x04Type\x12\x10\n\x0cSTART_MASTER\x10\x01\x12\x0f\n\x0bSTOP_MASTER\x10\x02\x12\x14\n\x10GET_SLAVES_DESCR\x10\x03\"g\n\nFOE_Master\x12\x10\n\x08\x66ilename\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\r\x12\x10\n\x08mcu_type\x18\x03 \x01(\t\x12\x11\n\tslave_pos\x18\x04 \x01(\x05\x12\x10\n\x08\x62oard_id\x18\x05 \x01(\x05\"\xbd\x03\n\x08Repl_cmd\x12\x1f\n\x04type\x18\x01 \x02(\x0e\x32\x11.iit.advr.CmdType\x12 \n\x06header\x18\x02 \x01(\x0b\x32\x10.iit.advr.Header\x12\x30\n\x0etrajectory_cmd\x18\x03 \x01(\x0b\x32\x18.iit.advr.Trajectory_cmd\x12$\n\x08\x63trl_cmd\x18\x04 \x01(\x0b\x32\x12.iit.advr.Ctrl_cmd\x12&\n\tflash_cmd\x18\x05 \x01(\x0b\x32\x13.iit.advr.Flash_cmd\x12\x32\n\x0f\x65\x63\x61t_master_cmd\x18\x06 \x01(\x0b\x32\x19.iit.advr.Ecat_Master_cmd\x12(\n\nfoe_master\x18\x07 \x01(\x0b\x32\x14.iit.advr.FOE_Master\x12.\n\rtrj_queue_cmd\x18\x08 \x01(\x0b\x32\x17.iit.advr.Trj_queue_cmd\x12.\n\rslave_sdo_cmd\x18\t \x01(\x0b\x32\x17.iit.advr.Slave_SDO_cmd\x12\x30\n\x0eslave_sdo_info\x18\n \x01(\x0b\x32\x18.iit.advr.Slave_SDO_info\"\xaf\x01\n\tCmd_reply\x12&\n\x04type\x18\x01 \x02(\x0e\x32\x18.iit.advr.Cmd_reply.Type\x12#\n\x08\x63md_type\x18\x02 \x02(\x0e\x32\x11.iit.advr.CmdType\x12\x0b\n\x03msg\x18\x03 \x02(\t\x12 \n\x06header\x18\x04 \x01(\x0b\x32\x10.iit.advr.Header\x12\x0b\n\x03pdo\x18\x05 \x01(\t\"\x19\n\x04Type\x12\x07\n\x03\x41\x43K\x10\x01\x12\x08\n\x04NACK\x10\x02*\x92\x01\n\x07\x43mdType\x12\x0b\n\x07TRJ_CMD\x10\x01\x12\x0c\n\x08\x43TRL_CMD\x10\x02\x12\r\n\tFLASH_CMD\x10\x03\x12\x13\n\x0f\x45\x43\x41T_MASTER_CMD\x10\x04\x12\x0e\n\nFOE_MASTER\x10\x05\x12\x11\n\rTRJ_QUEUE_CMD\x10\x06\x12\x11\n\rSLAVE_SDO_CMD\x10\x07\x12\x12\n\x0eSLAVE_SDO_INFO\x10\x08')
+  serialized_pb=_b('\n\x0erepl_cmd.proto\x12\x08iit.advr\x1a\x0cheader.proto\" \n\x08Vector2d\x12\t\n\x01x\x18\x01 \x02(\x01\x12\t\n\x01y\x18\x02 \x02(\x01\"\xaf\x01\n\x05Gains\x12\"\n\x04type\x18\x01 \x02(\x0e\x32\x14.iit.advr.Gains.Type\x12\x0e\n\x06pos_kp\x18\x02 \x02(\x01\x12\x0e\n\x06pos_kd\x18\x03 \x02(\x01\x12\x0e\n\x06tor_kp\x18\x04 \x01(\x01\x12\x0e\n\x06tor_ki\x18\x05 \x01(\x01\x12\x0e\n\x06tor_kd\x18\x06 \x01(\x01\"2\n\x04Type\x12\x0c\n\x08POSITION\x10;\x12\x0c\n\x08VELOCITY\x10q\x12\x0e\n\tIMPEDANCE\x10\xd4\x01\"p\n\nSlave_objd\x12\r\n\x05index\x18\x01 \x02(\x05\x12\x10\n\x08subindex\x18\x02 \x02(\x05\x12\x10\n\x08\x64\x61tatype\x18\x03 \x02(\x05\x12\x11\n\tbitlength\x18\x04 \x02(\x05\x12\x0e\n\x06\x61\x63\x63\x65ss\x18\x05 \x02(\x05\x12\x0c\n\x04name\x18\x06 \x02(\t\"(\n\tKeyValStr\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\r\n\x05value\x18\x02 \x02(\t\"\xb7\x03\n\x0eTrajectory_cmd\x12+\n\x04type\x18\x01 \x02(\x0e\x32\x1d.iit.advr.Trajectory_cmd.Type\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x10\n\x08\x62oard_id\x18\x03 \x02(\x05\x12\x37\n\nsmooth_par\x18\x04 \x01(\x0b\x32#.iit.advr.Trajectory_cmd.Smooth_par\x12\x37\n\nperiod_par\x18\x05 \x01(\x0b\x32#.iit.advr.Trajectory_cmd.Period_par\x12\x37\n\nhoming_par\x18\x06 \x01(\x0b\x32#.iit.advr.Trajectory_cmd.Homing_par\x1a\x17\n\nHoming_par\x12\t\n\x01x\x18\x01 \x03(\x01\x1a\x44\n\nPeriod_par\x12\x0c\n\x04\x66req\x18\x01 \x02(\x01\x12\x0c\n\x04\x61mpl\x18\x02 \x02(\x01\x12\x0c\n\x04teta\x18\x03 \x02(\x01\x12\x0c\n\x04secs\x18\x04 \x02(\x01\x1a\"\n\nSmooth_par\x12\t\n\x01x\x18\x01 \x03(\x01\x12\t\n\x01y\x18\x02 \x03(\x01\"*\n\x04Type\x12\n\n\x06HOMING\x10\x01\x12\x08\n\x04SINE\x10\x02\x12\x0c\n\x08SMOOTHER\x10\x03\"s\n\rTrj_queue_cmd\x12*\n\x04type\x18\x01 \x02(\x0e\x32\x1c.iit.advr.Trj_queue_cmd.Type\x12\x11\n\ttrj_names\x18\x02 \x03(\t\"#\n\x04Type\x12\x0c\n\x08PUSH_QUE\x10\x01\x12\r\n\tEMPTY_QUE\x10\x02\"\n\n\x08Repl_hdr\"\xe3\x04\n\x08\x43trl_cmd\x12%\n\x04type\x18\x01 \x02(\x0e\x32\x17.iit.advr.Ctrl_cmd.Type\x12\x10\n\x08\x62oard_id\x18\x02 \x02(\x05\x12\r\n\x05value\x18\x03 \x01(\x02\x12\x1e\n\x05gains\x18\x04 \x01(\x0b\x32\x0f.iit.advr.Gains\"\xee\x03\n\x04Type\x12\x12\n\x0e\x43TRL_TEST_DONE\x10\x01\x12\x13\n\x0f\x43TRL_TEST_ERROR\x10\x02\x12\x11\n\rCTRL_DAC_TUNE\x10\x03\x12\x1b\n\x17\x43TRL_REMOVE_TORQUE_OFFS\x10\x04\x12\x1a\n\x16\x43TRL_SET_ZERO_POSITION\x10\x05\x12\x0c\n\x08\x43TRL_FAN\x10\x06\x12\x0c\n\x08\x43TRL_LED\x10\x07\x12\x10\n\x0c\x43TRL_SANDBOX\x10\x08\x12\x13\n\x0f\x43TRL_REF_FILTER\x10\t\x12\x12\n\x0e\x43TRL_POWER_MOD\x10\n\x12\x12\n\x0e\x43TRL_CMD_START\x10\x0b\x12\x11\n\rCTRL_CMD_STOP\x10\x0c\x12\x11\n\rCTRL_SET_HOME\x10\r\x12\x19\n\x15\x43TRL_SET_MIN_POSITION\x10\x0e\x12\x19\n\x15\x43TRL_SET_MAX_POSITION\x10\x0f\x12\x19\n\x15\x43TRL_RUN_TORQUE_CALIB\x10\x10\x12\x12\n\x0e\x43TRL_SET_GAINS\x10\x11\x12\x15\n\x11\x43TRL_SET_POSITION\x10\x12\x12\x15\n\x11\x43TRL_SET_VELOCITY\x10\x13\x12\x13\n\x0f\x43TRL_SET_TORQUE\x10\x14\x12\x14\n\x10\x43TRL_SET_CURRENT\x10\x15\x12\x10\n\x0c\x43TRL_GET_ADC\x10\x16\x12\x10\n\x0c\x43TRL_SET_DAC\x10\x17\"\x9c\x01\n\tFlash_cmd\x12&\n\x04type\x18\x01 \x02(\x0e\x32\x18.iit.advr.Flash_cmd.Type\x12\x10\n\x08\x62oard_id\x18\x02 \x02(\x05\"U\n\x04Type\x12\x18\n\x14SAVE_PARAMS_TO_FLASH\x10\x01\x12\x1a\n\x16LOAD_PARAMS_FROM_FLASH\x10\x02\x12\x17\n\x13LOAD_DEFAULT_PARAMS\x10\x03\"V\n\rSlave_SDO_cmd\x12\x10\n\x08\x62oard_id\x18\x01 \x02(\x05\x12\x0e\n\x06rd_sdo\x18\x02 \x03(\t\x12#\n\x06wr_sdo\x18\x03 \x03(\x0b\x32\x13.iit.advr.KeyValStr\"s\n\x0eSlave_SDO_info\x12+\n\x04type\x18\x01 \x02(\x0e\x32\x1d.iit.advr.Slave_SDO_info.Type\x12\x10\n\x08\x62oard_id\x18\x02 \x02(\x05\"\"\n\x04Type\x12\x0c\n\x08SDO_NAME\x10\x01\x12\x0c\n\x08SDO_OBJD\x10\x02\"\xa3\x01\n\x0f\x45\x63\x61t_Master_cmd\x12,\n\x04type\x18\x01 \x02(\x0e\x32\x1e.iit.advr.Ecat_Master_cmd.Type\x12!\n\x04\x61rgs\x18\x02 \x03(\x0b\x32\x13.iit.advr.KeyValStr\"?\n\x04Type\x12\x10\n\x0cSTART_MASTER\x10\x01\x12\x0f\n\x0bSTOP_MASTER\x10\x02\x12\x14\n\x10GET_SLAVES_DESCR\x10\x03\"g\n\nFOE_Master\x12\x10\n\x08\x66ilename\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\r\x12\x10\n\x08mcu_type\x18\x03 \x01(\t\x12\x11\n\tslave_pos\x18\x04 \x01(\x05\x12\x10\n\x08\x62oard_id\x18\x05 \x01(\x05\"\xbd\x03\n\x08Repl_cmd\x12\x1f\n\x04type\x18\x01 \x02(\x0e\x32\x11.iit.advr.CmdType\x12 \n\x06header\x18\x02 \x01(\x0b\x32\x10.iit.advr.Header\x12\x30\n\x0etrajectory_cmd\x18\x03 \x01(\x0b\x32\x18.iit.advr.Trajectory_cmd\x12$\n\x08\x63trl_cmd\x18\x04 \x01(\x0b\x32\x12.iit.advr.Ctrl_cmd\x12&\n\tflash_cmd\x18\x05 \x01(\x0b\x32\x13.iit.advr.Flash_cmd\x12\x32\n\x0f\x65\x63\x61t_master_cmd\x18\x06 \x01(\x0b\x32\x19.iit.advr.Ecat_Master_cmd\x12(\n\nfoe_master\x18\x07 \x01(\x0b\x32\x14.iit.advr.FOE_Master\x12.\n\rtrj_queue_cmd\x18\x08 \x01(\x0b\x32\x17.iit.advr.Trj_queue_cmd\x12.\n\rslave_sdo_cmd\x18\t \x01(\x0b\x32\x17.iit.advr.Slave_SDO_cmd\x12\x30\n\x0eslave_sdo_info\x18\n \x01(\x0b\x32\x18.iit.advr.Slave_SDO_info\"\xaf\x01\n\tCmd_reply\x12&\n\x04type\x18\x01 \x02(\x0e\x32\x18.iit.advr.Cmd_reply.Type\x12#\n\x08\x63md_type\x18\x02 \x02(\x0e\x32\x11.iit.advr.CmdType\x12\x0b\n\x03msg\x18\x03 \x02(\t\x12 \n\x06header\x18\x04 \x01(\x0b\x32\x10.iit.advr.Header\x12\x0b\n\x03pdo\x18\x05 \x01(\t\"\x19\n\x04Type\x12\x07\n\x03\x41\x43K\x10\x01\x12\x08\n\x04NACK\x10\x02*\x92\x01\n\x07\x43mdType\x12\x0b\n\x07TRJ_CMD\x10\x01\x12\x0c\n\x08\x43TRL_CMD\x10\x02\x12\r\n\tFLASH_CMD\x10\x03\x12\x13\n\x0f\x45\x43\x41T_MASTER_CMD\x10\x04\x12\x0e\n\nFOE_MASTER\x10\x05\x12\x11\n\rTRJ_QUEUE_CMD\x10\x06\x12\x11\n\rSLAVE_SDO_CMD\x10\x07\x12\x12\n\x0eSLAVE_SDO_INFO\x10\x08')
   ,
-  dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
+  dependencies=[header__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 _CMDTYPE = _descriptor.EnumDescriptor(
@@ -67,8 +67,8 @@ _CMDTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2960,
-  serialized_end=3106,
+  serialized_start=2857,
+  serialized_end=3003,
 )
 _sym_db.RegisterEnumDescriptor(_CMDTYPE)
 
@@ -104,8 +104,8 @@ _GAINS_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=305,
-  serialized_end=355,
+  serialized_start=202,
+  serialized_end=252,
 )
 _sym_db.RegisterEnumDescriptor(_GAINS_TYPE)
 
@@ -130,8 +130,8 @@ _TRAJECTORY_CMD_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=911,
-  serialized_end=953,
+  serialized_start=808,
+  serialized_end=850,
 )
 _sym_db.RegisterEnumDescriptor(_TRAJECTORY_CMD_TYPE)
 
@@ -152,8 +152,8 @@ _TRJ_QUEUE_CMD_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1035,
-  serialized_end=1070,
+  serialized_start=932,
+  serialized_end=967,
 )
 _sym_db.RegisterEnumDescriptor(_TRJ_QUEUE_CMD_TYPE)
 
@@ -258,8 +258,8 @@ _CTRL_CMD_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1202,
-  serialized_end=1696,
+  serialized_start=1099,
+  serialized_end=1593,
 )
 _sym_db.RegisterEnumDescriptor(_CTRL_CMD_TYPE)
 
@@ -284,8 +284,8 @@ _FLASH_CMD_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=1770,
-  serialized_end=1855,
+  serialized_start=1667,
+  serialized_end=1752,
 )
 _sym_db.RegisterEnumDescriptor(_FLASH_CMD_TYPE)
 
@@ -306,8 +306,8 @@ _SLAVE_SDO_INFO_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2026,
-  serialized_end=2060,
+  serialized_start=1923,
+  serialized_end=1957,
 )
 _sym_db.RegisterEnumDescriptor(_SLAVE_SDO_INFO_TYPE)
 
@@ -332,8 +332,8 @@ _ECAT_MASTER_CMD_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2163,
-  serialized_end=2226,
+  serialized_start=2060,
+  serialized_end=2123,
 )
 _sym_db.RegisterEnumDescriptor(_ECAT_MASTER_CMD_TYPE)
 
@@ -354,55 +354,10 @@ _CMD_REPLY_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2932,
-  serialized_end=2957,
+  serialized_start=2829,
+  serialized_end=2854,
 )
 _sym_db.RegisterEnumDescriptor(_CMD_REPLY_TYPE)
-
-
-_HEADER = _descriptor.Descriptor(
-  name='Header',
-  full_name='iit.advr.Header',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='str_id', full_name='iit.advr.Header.str_id', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='stamp', full_name='iit.advr.Header.stamp', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-    _descriptor.FieldDescriptor(
-      name='index', full_name='iit.advr.Header.index', index=2,
-      number=3, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      options=None),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  options=None,
-  is_extendable=False,
-  syntax='proto2',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=61,
-  serialized_end=143,
-)
 
 
 _VECTOR2D = _descriptor.Descriptor(
@@ -438,8 +393,8 @@ _VECTOR2D = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=145,
-  serialized_end=177,
+  serialized_start=42,
+  serialized_end=74,
 )
 
 
@@ -505,8 +460,8 @@ _GAINS = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=180,
-  serialized_end=355,
+  serialized_start=77,
+  serialized_end=252,
 )
 
 
@@ -571,8 +526,8 @@ _SLAVE_OBJD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=357,
-  serialized_end=469,
+  serialized_start=254,
+  serialized_end=366,
 )
 
 
@@ -609,8 +564,8 @@ _KEYVALSTR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=471,
-  serialized_end=511,
+  serialized_start=368,
+  serialized_end=408,
 )
 
 
@@ -640,8 +595,8 @@ _TRAJECTORY_CMD_HOMING_PAR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=780,
-  serialized_end=803,
+  serialized_start=677,
+  serialized_end=700,
 )
 
 _TRAJECTORY_CMD_PERIOD_PAR = _descriptor.Descriptor(
@@ -691,8 +646,8 @@ _TRAJECTORY_CMD_PERIOD_PAR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=805,
-  serialized_end=873,
+  serialized_start=702,
+  serialized_end=770,
 )
 
 _TRAJECTORY_CMD_SMOOTH_PAR = _descriptor.Descriptor(
@@ -728,8 +683,8 @@ _TRAJECTORY_CMD_SMOOTH_PAR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=875,
-  serialized_end=909,
+  serialized_start=772,
+  serialized_end=806,
 )
 
 _TRAJECTORY_CMD = _descriptor.Descriptor(
@@ -794,8 +749,8 @@ _TRAJECTORY_CMD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=514,
-  serialized_end=953,
+  serialized_start=411,
+  serialized_end=850,
 )
 
 
@@ -833,8 +788,8 @@ _TRJ_QUEUE_CMD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=955,
-  serialized_end=1070,
+  serialized_start=852,
+  serialized_end=967,
 )
 
 
@@ -857,8 +812,8 @@ _REPL_HDR = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1072,
-  serialized_end=1082,
+  serialized_start=969,
+  serialized_end=979,
 )
 
 
@@ -910,8 +865,8 @@ _CTRL_CMD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1085,
-  serialized_end=1696,
+  serialized_start=982,
+  serialized_end=1593,
 )
 
 
@@ -949,8 +904,8 @@ _FLASH_CMD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1699,
-  serialized_end=1855,
+  serialized_start=1596,
+  serialized_end=1752,
 )
 
 
@@ -994,8 +949,8 @@ _SLAVE_SDO_CMD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1857,
-  serialized_end=1943,
+  serialized_start=1754,
+  serialized_end=1840,
 )
 
 
@@ -1033,8 +988,8 @@ _SLAVE_SDO_INFO = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1945,
-  serialized_end=2060,
+  serialized_start=1842,
+  serialized_end=1957,
 )
 
 
@@ -1072,8 +1027,8 @@ _ECAT_MASTER_CMD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2063,
-  serialized_end=2226,
+  serialized_start=1960,
+  serialized_end=2123,
 )
 
 
@@ -1131,8 +1086,8 @@ _FOE_MASTER = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2228,
-  serialized_end=2331,
+  serialized_start=2125,
+  serialized_end=2228,
 )
 
 
@@ -1225,8 +1180,8 @@ _REPL_CMD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2334,
-  serialized_end=2779,
+  serialized_start=2231,
+  serialized_end=2676,
 )
 
 
@@ -1285,11 +1240,10 @@ _CMD_REPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2782,
-  serialized_end=2957,
+  serialized_start=2679,
+  serialized_end=2854,
 )
 
-_HEADER.fields_by_name['stamp'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
 _GAINS.fields_by_name['type'].enum_type = _GAINS_TYPE
 _GAINS_TYPE.containing_type = _GAINS
 _TRAJECTORY_CMD_HOMING_PAR.containing_type = _TRAJECTORY_CMD
@@ -1314,7 +1268,7 @@ _ECAT_MASTER_CMD.fields_by_name['type'].enum_type = _ECAT_MASTER_CMD_TYPE
 _ECAT_MASTER_CMD.fields_by_name['args'].message_type = _KEYVALSTR
 _ECAT_MASTER_CMD_TYPE.containing_type = _ECAT_MASTER_CMD
 _REPL_CMD.fields_by_name['type'].enum_type = _CMDTYPE
-_REPL_CMD.fields_by_name['header'].message_type = _HEADER
+_REPL_CMD.fields_by_name['header'].message_type = header__pb2._HEADER
 _REPL_CMD.fields_by_name['trajectory_cmd'].message_type = _TRAJECTORY_CMD
 _REPL_CMD.fields_by_name['ctrl_cmd'].message_type = _CTRL_CMD
 _REPL_CMD.fields_by_name['flash_cmd'].message_type = _FLASH_CMD
@@ -1325,9 +1279,8 @@ _REPL_CMD.fields_by_name['slave_sdo_cmd'].message_type = _SLAVE_SDO_CMD
 _REPL_CMD.fields_by_name['slave_sdo_info'].message_type = _SLAVE_SDO_INFO
 _CMD_REPLY.fields_by_name['type'].enum_type = _CMD_REPLY_TYPE
 _CMD_REPLY.fields_by_name['cmd_type'].enum_type = _CMDTYPE
-_CMD_REPLY.fields_by_name['header'].message_type = _HEADER
+_CMD_REPLY.fields_by_name['header'].message_type = header__pb2._HEADER
 _CMD_REPLY_TYPE.containing_type = _CMD_REPLY
-DESCRIPTOR.message_types_by_name['Header'] = _HEADER
 DESCRIPTOR.message_types_by_name['Vector2d'] = _VECTOR2D
 DESCRIPTOR.message_types_by_name['Gains'] = _GAINS
 DESCRIPTOR.message_types_by_name['Slave_objd'] = _SLAVE_OBJD
@@ -1344,13 +1297,6 @@ DESCRIPTOR.message_types_by_name['FOE_Master'] = _FOE_MASTER
 DESCRIPTOR.message_types_by_name['Repl_cmd'] = _REPL_CMD
 DESCRIPTOR.message_types_by_name['Cmd_reply'] = _CMD_REPLY
 DESCRIPTOR.enum_types_by_name['CmdType'] = _CMDTYPE
-
-Header = _reflection.GeneratedProtocolMessageType('Header', (_message.Message,), dict(
-  DESCRIPTOR = _HEADER,
-  __module__ = 'repl_cmd_pb2'
-  # @@protoc_insertion_point(class_scope:iit.advr.Header)
-  ))
-_sym_db.RegisterMessage(Header)
 
 Vector2d = _reflection.GeneratedProtocolMessageType('Vector2d', (_message.Message,), dict(
   DESCRIPTOR = _VECTOR2D,
