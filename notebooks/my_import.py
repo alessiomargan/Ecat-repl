@@ -1,9 +1,12 @@
+import sys
 import time
 import socket
 import yaml
 from dataclasses import asdict
 import ipywidgets.widgets as widgets
 from IPython.display import display
+
+print(sys.executable)
 
 from ecat_repl import ZmsgIO
 from ecat_repl import FoeMaster
