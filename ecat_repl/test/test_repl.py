@@ -24,8 +24,7 @@ def test_repl():
     opts = repl_option()
     d = yaml.load(open(opts["repl_yaml"], 'r'), Loader=yaml.FullLoader)
 
-    proc = Popen(["basic", "/home/amargan/work/code/ecat_dev/ec_master_test/configs/nrt_config.yaml"],
-                 stdout=PIPE, stderr=PIPE)
+    proc = Popen(["repl"], stdout=PIPE, stderr=PIPE)
 
     if ( d['use_zmq']):
         io = ZmsgIO(d['uri'])
