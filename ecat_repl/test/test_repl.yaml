@@ -1,5 +1,6 @@
 
 use_zmq : true
+start_srv : false
 #uri : "com-exp.local:5555"
 uri : "localhost:5555"
 

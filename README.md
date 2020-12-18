@@ -9,7 +9,24 @@ conda activate repl
 conda install -y ipykernel ipywidgets
 ipython kernel install --user --name=repl
 
-# install package
+# check kernel python path 
+
+check in $HOME/.local/share/jupyter/kernels/repl/kernel.json
+
+{
+ "argv": [
+  "/home/amargan/work/anaconda3/envs/repl/bin/python",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "repl",
+ "language": "python"
+}
+
+
+# install ecat-repl package
 
 make install-dev
 
