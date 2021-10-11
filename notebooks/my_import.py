@@ -1,5 +1,6 @@
 import socket
 import yaml
+from  pprint import pprint as pp
 import ipywidgets.widgets as widgets
 from IPython.display import display
 
@@ -28,6 +29,7 @@ from ecat_repl import (
     ctrl_cmd_set_min_pos,
     ctrl_cmd_set_max_pos,
     ctrl_cmd_set_position,
+    ctrl_cmd_set_gains,
     ctrl_cmd_set_velocity,
     ctrl_cmd_set_torque,
     ctrl_cmd_set_current,

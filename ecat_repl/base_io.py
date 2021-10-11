@@ -34,6 +34,7 @@ ctrl_cmd_set_position = CtrlCmd(u'CTRL_SET_POSITION')
 ctrl_cmd_set_velocity = CtrlCmd(u'CTRL_SET_VELOCITY')
 ctrl_cmd_set_torque = CtrlCmd(u'CTRL_SET_TORQUE')
 ctrl_cmd_set_current = CtrlCmd(u'CTRL_SET_CURRENT')
+ctrl_cmd_set_gains = CtrlCmd(u'CTRL_SET_GAINS')
 
 # Ft6
 ctrl_cmd_dac_tune = CtrlCmd(u'CTRL_DAC_TUNE')

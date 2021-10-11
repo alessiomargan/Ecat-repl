@@ -39,6 +39,7 @@ from . base_io import (
     ctrl_cmd_set_min_pos,
     ctrl_cmd_set_max_pos,
     ctrl_cmd_set_position,
+    ctrl_cmd_set_gains,
     ctrl_cmd_set_velocity,
     ctrl_cmd_set_torque,
     ctrl_cmd_set_current,
