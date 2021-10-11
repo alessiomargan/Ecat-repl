@@ -1,12 +1,10 @@
+#!/usr/bin/env python3
+
 import sys
 import time
 import socket
 import yaml
-<<<<<<< HEAD
-from  pprint import pprint as pp
-=======
 from dataclasses import asdict
->>>>>>> 0c523ba185192144a9924f0c0a7be093d4d0658f
 import ipywidgets.widgets as widgets
 from IPython.display import display
 
@@ -37,7 +35,6 @@ from ecat_repl import (
     ctrl_cmd_set_min_pos,
     ctrl_cmd_set_max_pos,
     ctrl_cmd_set_position,
-    ctrl_cmd_set_gains,
     ctrl_cmd_set_velocity,
     ctrl_cmd_set_torque,
     ctrl_cmd_set_current,
@@ -47,3 +44,40 @@ from ecat_repl import (
     ctrl_cmd_test_done,
     ctrl_cmd_test_error,
 )
+
+uri = "localhost:5555"
+io = ZmsgIO(uri)
+io.debug = False
+scan_ids = []
+
+io.doit(master_cmd_stop)
+
+io.doit(master_cmd_start.set_args({'app_mode':'config_mode','use_ecat_pos_as_id':'true'}))
+
+reply = io.doit(master_cmd_get_slave_descr)
+yaml_msg = yaml.safe_load(reply['msg'])
+scan_ids = yaml_msg.keys()
+ids=list(scan_ids)
+print(ids)
+
+reply = io.doit(SdoInfo(u'SDO_NAME').set_bid(ids[0]))
+yaml_msg = yaml.safe_load(reply['msg'])
+sdo_names = yaml_msg
+print(sdo_names)
+
+reply = io.doit(SdoInfo(u'SDO_OBJD').set_bid(ids[0]))
+yaml_msg = yaml.safe_load(reply['msg'])
+sdo_infos = yaml_msg
+print(sdo_infos)
+
+
+for i in range(100):
+    reply = io.doit(SdoCmd(rd_sdo=sdo_names,wr_sdo={}).set_bid(ids[0]))
+    yaml_msg = yaml.safe_load(reply['msg'])
+    print(yaml_msg)
+    time.sleep(0.1)
+
+
+#io.doit(SdoCmd(rd_sdo=['fw_ver'],wr_sdo={'board_id': 101}).set_bid(ids[0]))
+
+#io.doit(flash_cmd_save_flash.set_bid(ids[0]))

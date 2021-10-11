@@ -10,31 +10,22 @@ from ecat_repl import ZmsgIO
 from ecat_repl import PipeIO
 
 
-def repl_option():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-f", "--file_yaml", dest="repl_yaml", action="store", default="ecat_repl/test/test_repl.yaml")
-    parser.add_argument("-c", dest="cmd_exec_cnt", action="store", type=int, default=1)
-    args = parser.parse_args()
-    dict_opt = vars(args)
-    return dict_opt
-
             
-def test_repl():
+def test_repl(yaml_file):
 
-    opts = repl_option()
-    d = yaml.load(open(opts["repl_yaml"], 'r'), Loader=yaml.FullLoader)
+    d = yaml.load(open(yaml_file, 'r'), Loader=yaml.FullLoader)
 
-    proc = Popen(["basic", "/home/amargan/work/code/ecat_dev/ec_master_test/configs/nrt_config.yaml"],
-                 stdout=PIPE, stderr=PIPE)
+    if d['start_srv'] :
+        proc = Popen(["repl"], stdout=PIPE, stderr=PIPE)
 
-    if ( d['use_zmq']):
+    if d['use_zmq'] :
         io = ZmsgIO(d['uri'])
     else:
         io = PipeIO()
 
     #print(d)
 
-    cnt = opts["cmd_exec_cnt"]
+    cnt = 1 #d["cmd_cnt"]
     while cnt:
 
         print("cmd_exec_cnt", cnt)
@@ -52,8 +43,9 @@ def test_repl():
 
         #time.sleep(0.05)
 
-    proc.terminate()
-    print(proc.stdout.readlines())
+    if d['start_srv'] :
+        proc.terminate()
+        print(proc.stdout.readlines())
 
     print("Exit")
 

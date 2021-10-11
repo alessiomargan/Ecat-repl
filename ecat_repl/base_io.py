@@ -21,7 +21,7 @@ flash_cmd_load_default = FlashCmd(u'LOAD_DEFAULT_PARAMS')
 flash_cmd_load_flash = FlashCmd(u'LOAD_PARAMS_FROM_FLASH')
 
 # Motor
-ctrl_cmd_start = lambda: CtrlCmd(u'CTRL_CMD_START')
+def ctrl_cmd_start(): return CtrlCmd(u'CTRL_CMD_START')
 ctrl_cmd_stop = CtrlCmd(u'CTRL_CMD_STOP')
 ctrl_cmd_fan = CtrlCmd(u'CTRL_FAN')
 ctrl_cmd_led = CtrlCmd(u'CTRL_LED')
@@ -38,6 +38,8 @@ ctrl_cmd_set_gains = CtrlCmd(u'CTRL_SET_GAINS')
 
 # Ft6
 ctrl_cmd_dac_tune = CtrlCmd(u'CTRL_DAC_TUNE')
+ctrl_cmd_get_adc = CtrlCmd(u'CTRL_GET_ADC')
+ctrl_cmd_set_dac = CtrlCmd(u'CTRL_SET_DAC')
 
 #
 ctrl_cmd_test_error = CtrlCmd(u'CTRL_TEST_ERROR')
@@ -51,7 +53,7 @@ def gen_cmds(cmds: list):
             id_list = cmd['board_id_list']
             del cmd['board_id_list']
             for _id in id_list:
-                for key in ['ctrl_cmd', 'flash_cmd', 'trajectory_cmd']:
+                for key in ['ctrl_cmd', 'flash_cmd', 'trajectory_cmd', 'slave_sdo_cmd']:
                     if key in cmd:
                         cmd[key]['board_id'] = _id
                         break

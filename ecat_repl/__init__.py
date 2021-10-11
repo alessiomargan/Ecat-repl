@@ -44,9 +44,11 @@ from . base_io import (
     ctrl_cmd_set_torque,
     ctrl_cmd_set_current,
     ctrl_cmd_dac_tune,
+    ctrl_cmd_get_adc,
+    ctrl_cmd_set_dac,
     ctrl_cmd_test_error,
     ctrl_cmd_test_done,
 )
+from ecat_repl import repl_cmd_pb2 as repl_cmd
 from . zmsg_io import ZmsgIO
 from . pipe_io import PipeIO
-from ecat_repl import repl_cmd_pb2 as repl_cmd
