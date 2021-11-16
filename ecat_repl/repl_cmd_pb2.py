@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='iit.advr',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\x0erepl_cmd.proto\x12\x08iit.advr\x1a\x0cheader.proto\" \n\x08Vector2d\x12\t\n\x01x\x18\x01 \x02(\x01\x12\t\n\x01y\x18\x02 \x02(\x01\"\xaf\x01\n\x05Gains\x12\"\n\x04type\x18\x01 \x02(\x0e\x32\x14.iit.advr.Gains.Type\x12\x0e\n\x06pos_kp\x18\x02 \x02(\x01\x12\x0e\n\x06pos_kd\x18\x03 \x02(\x01\x12\x0e\n\x06tor_kp\x18\x04 \x01(\x01\x12\x0e\n\x06tor_ki\x18\x05 \x01(\x01\x12\x0e\n\x06tor_kd\x18\x06 \x01(\x01\"2\n\x04Type\x12\x0c\n\x08POSITION\x10;\x12\x0c\n\x08VELOCITY\x10q\x12\x0e\n\tIMPEDANCE\x10\xd4\x01\"p\n\nSlave_objd\x12\r\n\x05index\x18\x01 \x02(\x05\x12\x10\n\x08subindex\x18\x02 \x02(\x05\x12\x10\n\x08\x64\x61tatype\x18\x03 \x02(\x05\x12\x11\n\tbitlength\x18\x04 \x02(\x05\x12\x0e\n\x06\x61\x63\x63\x65ss\x18\x05 \x02(\x05\x12\x0c\n\x04name\x18\x06 \x02(\t\"(\n\tKeyValStr\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\r\n\x05value\x18\x02 \x02(\t\"\xf1\x04\n\x0eTrajectory_cmd\x12+\n\x04type\x18\x01 \x02(\x0e\x32\x1d.iit.advr.Trajectory_cmd.Type\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x10\n\x08\x62oard_id\x18\x03 \x02(\x05\x12\x37\n\nsmooth_par\x18\x04 \x01(\x0b\x32#.iit.advr.Trajectory_cmd.Smooth_par\x12\x37\n\nperiod_par\x18\x05 \x01(\x0b\x32#.iit.advr.Trajectory_cmd.Period_par\x12\x37\n\nhoming_par\x18\x06 \x01(\x0b\x32#.iit.advr.Trajectory_cmd.Homing_par\x12>\n\x0esmooth_vel_par\x18\x07 \x01(\x0b\x32&.iit.advr.Trajectory_cmd.SmoothVel_par\x1a\x17\n\nHoming_par\x12\t\n\x01x\x18\x01 \x03(\x01\x1a\x44\n\nPeriod_par\x12\x0c\n\x04\x66req\x18\x01 \x02(\x01\x12\x0c\n\x04\x61mpl\x18\x02 \x02(\x01\x12\x0c\n\x04teta\x18\x03 \x02(\x01\x12\x0c\n\x04secs\x18\x04 \x02(\x01\x1a\"\n\nSmooth_par\x12\t\n\x01x\x18\x01 \x03(\x01\x12\t\n\x01y\x18\x02 \x03(\x01\x1a\x66\n\rSmoothVel_par\x12\n\n\x02\x64t\x18\x01 \x02(\x01\x12\n\n\x02p0\x18\x02 \x01(\x01\x12\n\n\x02v0\x18\x03 \x01(\x01\x12\n\n\x02pt\x18\x04 \x01(\x01\x12\n\n\x02vt\x18\x05 \x01(\x01\x12\n\n\x02\x64s\x18\x06 \x01(\x01\x12\r\n\x05magic\x18\x07 \x01(\x01\"<\n\x04Type\x12\n\n\x06HOMING\x10\x01\x12\x08\n\x04SINE\x10\x02\x12\x0c\n\x08SMOOTHER\x10\x03\x12\x10\n\x0cSMOOTHER_VEL\x10\x04\"s\n\rTrj_queue_cmd\x12*\n\x04type\x18\x01 \x02(\x0e\x32\x1c.iit.advr.Trj_queue_cmd.Type\x12\x11\n\ttrj_names\x18\x02 \x03(\t\"#\n\x04Type\x12\x0c\n\x08PUSH_QUE\x10\x01\x12\r\n\tEMPTY_QUE\x10\x02\"\n\n\x08Repl_hdr\"\xe3\x04\n\x08\x43trl_cmd\x12%\n\x04type\x18\x01 \x02(\x0e\x32\x17.iit.advr.Ctrl_cmd.Type\x12\x10\n\x08\x62oard_id\x18\x02 \x02(\x05\x12\r\n\x05value\x18\x03 \x01(\x02\x12\x1e\n\x05gains\x18\x04 \x01(\x0b\x32\x0f.iit.advr.Gains\"\xee\x03\n\x04Type\x12\x12\n\x0e\x43TRL_TEST_DONE\x10\x01\x12\x13\n\x0f\x43TRL_TEST_ERROR\x10\x02\x12\x11\n\rCTRL_DAC_TUNE\x10\x03\x12\x1b\n\x17\x43TRL_REMOVE_TORQUE_OFFS\x10\x04\x12\x1a\n\x16\x43TRL_SET_ZERO_POSITION\x10\x05\x12\x0c\n\x08\x43TRL_FAN\x10\x06\x12\x0c\n\x08\x43TRL_LED\x10\x07\x12\x10\n\x0c\x43TRL_SANDBOX\x10\x08\x12\x13\n\x0f\x43TRL_REF_FILTER\x10\t\x12\x12\n\x0e\x43TRL_POWER_MOD\x10\n\x12\x12\n\x0e\x43TRL_CMD_START\x10\x0b\x12\x11\n\rCTRL_CMD_STOP\x10\x0c\x12\x11\n\rCTRL_SET_HOME\x10\r\x12\x19\n\x15\x43TRL_SET_MIN_POSITION\x10\x0e\x12\x19\n\x15\x43TRL_SET_MAX_POSITION\x10\x0f\x12\x19\n\x15\x43TRL_RUN_TORQUE_CALIB\x10\x10\x12\x12\n\x0e\x43TRL_SET_GAINS\x10\x11\x12\x15\n\x11\x43TRL_SET_POSITION\x10\x12\x12\x15\n\x11\x43TRL_SET_VELOCITY\x10\x13\x12\x13\n\x0f\x43TRL_SET_TORQUE\x10\x14\x12\x14\n\x10\x43TRL_SET_CURRENT\x10\x15\x12\x10\n\x0c\x43TRL_GET_ADC\x10\x16\x12\x10\n\x0c\x43TRL_SET_DAC\x10\x17\"\x9c\x01\n\tFlash_cmd\x12&\n\x04type\x18\x01 \x02(\x0e\x32\x18.iit.advr.Flash_cmd.Type\x12\x10\n\x08\x62oard_id\x18\x02 \x02(\x05\"U\n\x04Type\x12\x18\n\x14SAVE_PARAMS_TO_FLASH\x10\x01\x12\x1a\n\x16LOAD_PARAMS_FROM_FLASH\x10\x02\x12\x17\n\x13LOAD_DEFAULT_PARAMS\x10\x03\"V\n\rSlave_SDO_cmd\x12\x10\n\x08\x62oard_id\x18\x01 \x02(\x05\x12\x0e\n\x06rd_sdo\x18\x02 \x03(\t\x12#\n\x06wr_sdo\x18\x03 \x03(\x0b\x32\x13.iit.advr.KeyValStr\"s\n\x0eSlave_SDO_info\x12+\n\x04type\x18\x01 \x02(\x0e\x32\x1d.iit.advr.Slave_SDO_info.Type\x12\x10\n\x08\x62oard_id\x18\x02 \x02(\x05\"\"\n\x04Type\x12\x0c\n\x08SDO_NAME\x10\x01\x12\x0c\n\x08SDO_OBJD\x10\x02\"\xa3\x01\n\x0f\x45\x63\x61t_Master_cmd\x12,\n\x04type\x18\x01 \x02(\x0e\x32\x1e.iit.advr.Ecat_Master_cmd.Type\x12!\n\x04\x61rgs\x18\x02 \x03(\x0b\x32\x13.iit.advr.KeyValStr\"?\n\x04Type\x12\x10\n\x0cSTART_MASTER\x10\x01\x12\x0f\n\x0bSTOP_MASTER\x10\x02\x12\x14\n\x10GET_SLAVES_DESCR\x10\x03\"g\n\nFOE_Master\x12\x10\n\x08\x66ilename\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\r\x12\x10\n\x08mcu_type\x18\x03 \x01(\t\x12\x11\n\tslave_pos\x18\x04 \x01(\x05\x12\x10\n\x08\x62oard_id\x18\x05 \x01(\x05\"\xbd\x03\n\x08Repl_cmd\x12\x1f\n\x04type\x18\x01 \x02(\x0e\x32\x11.iit.advr.CmdType\x12 \n\x06header\x18\x02 \x01(\x0b\x32\x10.iit.advr.Header\x12\x30\n\x0etrajectory_cmd\x18\x03 \x01(\x0b\x32\x18.iit.advr.Trajectory_cmd\x12$\n\x08\x63trl_cmd\x18\x04 \x01(\x0b\x32\x12.iit.advr.Ctrl_cmd\x12&\n\tflash_cmd\x18\x05 \x01(\x0b\x32\x13.iit.advr.Flash_cmd\x12\x32\n\x0f\x65\x63\x61t_master_cmd\x18\x06 \x01(\x0b\x32\x19.iit.advr.Ecat_Master_cmd\x12(\n\nfoe_master\x18\x07 \x01(\x0b\x32\x14.iit.advr.FOE_Master\x12.\n\rtrj_queue_cmd\x18\x08 \x01(\x0b\x32\x17.iit.advr.Trj_queue_cmd\x12.\n\rslave_sdo_cmd\x18\t \x01(\x0b\x32\x17.iit.advr.Slave_SDO_cmd\x12\x30\n\x0eslave_sdo_info\x18\n \x01(\x0b\x32\x18.iit.advr.Slave_SDO_info\"\xaf\x01\n\tCmd_reply\x12&\n\x04type\x18\x01 \x02(\x0e\x32\x18.iit.advr.Cmd_reply.Type\x12#\n\x08\x63md_type\x18\x02 \x02(\x0e\x32\x11.iit.advr.CmdType\x12\x0b\n\x03msg\x18\x03 \x02(\t\x12 \n\x06header\x18\x04 \x01(\x0b\x32\x10.iit.advr.Header\x12\x0b\n\x03pdo\x18\x05 \x01(\t\"\x19\n\x04Type\x12\x07\n\x03\x41\x43K\x10\x01\x12\x08\n\x04NACK\x10\x02\"\x83\x01\n\nRepl_async\x12\'\n\x04type\x18\x01 \x02(\x0e\x32\x19.iit.advr.Repl_async.Type\x12 \n\x06header\x18\x02 \x01(\x0b\x32\x10.iit.advr.Header\x12\x0b\n\x03msg\x18\x03 \x01(\t\"\x1d\n\x04Type\x12\t\n\x05\x41LIVE\x10\x01\x12\n\n\x06STATUS\x10\x02*\x92\x01\n\x07\x43mdType\x12\x0b\n\x07TRJ_CMD\x10\x01\x12\x0c\n\x08\x43TRL_CMD\x10\x02\x12\r\n\tFLASH_CMD\x10\x03\x12\x13\n\x0f\x45\x43\x41T_MASTER_CMD\x10\x04\x12\x0e\n\nFOE_MASTER\x10\x05\x12\x11\n\rTRJ_QUEUE_CMD\x10\x06\x12\x11\n\rSLAVE_SDO_CMD\x10\x07\x12\x12\n\x0eSLAVE_SDO_INFO\x10\x08')
+  serialized_pb=_b('\n\x0erepl_cmd.proto\x12\x08iit.advr\x1a\x0cheader.proto\" \n\x08Vector2d\x12\t\n\x01x\x18\x01 \x02(\x01\x12\t\n\x01y\x18\x02 \x02(\x01\"\xaf\x01\n\x05Gains\x12\"\n\x04type\x18\x01 \x02(\x0e\x32\x14.iit.advr.Gains.Type\x12\x0e\n\x06pos_kp\x18\x02 \x02(\x01\x12\x0e\n\x06pos_kd\x18\x03 \x02(\x01\x12\x0e\n\x06tor_kp\x18\x04 \x01(\x01\x12\x0e\n\x06tor_ki\x18\x05 \x01(\x01\x12\x0e\n\x06tor_kd\x18\x06 \x01(\x01\"2\n\x04Type\x12\x0c\n\x08POSITION\x10;\x12\x0c\n\x08VELOCITY\x10q\x12\x0e\n\tIMPEDANCE\x10\xd4\x01\"p\n\nSlave_objd\x12\r\n\x05index\x18\x01 \x02(\x05\x12\x10\n\x08subindex\x18\x02 \x02(\x05\x12\x10\n\x08\x64\x61tatype\x18\x03 \x02(\x05\x12\x11\n\tbitlength\x18\x04 \x02(\x05\x12\x0e\n\x06\x61\x63\x63\x65ss\x18\x05 \x02(\x05\x12\x0c\n\x04name\x18\x06 \x02(\t\"(\n\tKeyValStr\x12\x0c\n\x04name\x18\x01 \x02(\t\x12\r\n\x05value\x18\x02 \x02(\t\"\xf1\x04\n\x0eTrajectory_cmd\x12+\n\x04type\x18\x01 \x02(\x0e\x32\x1d.iit.advr.Trajectory_cmd.Type\x12\x0c\n\x04name\x18\x02 \x02(\t\x12\x10\n\x08\x62oard_id\x18\x03 \x02(\x05\x12\x37\n\nsmooth_par\x18\x04 \x01(\x0b\x32#.iit.advr.Trajectory_cmd.Smooth_par\x12\x37\n\nperiod_par\x18\x05 \x01(\x0b\x32#.iit.advr.Trajectory_cmd.Period_par\x12\x37\n\nhoming_par\x18\x06 \x01(\x0b\x32#.iit.advr.Trajectory_cmd.Homing_par\x12>\n\x0esmooth_vel_par\x18\x07 \x01(\x0b\x32&.iit.advr.Trajectory_cmd.SmoothVel_par\x1a\x17\n\nHoming_par\x12\t\n\x01x\x18\x01 \x03(\x01\x1a\x44\n\nPeriod_par\x12\x0c\n\x04\x66req\x18\x01 \x02(\x01\x12\x0c\n\x04\x61mpl\x18\x02 \x02(\x01\x12\x0c\n\x04teta\x18\x03 \x02(\x01\x12\x0c\n\x04secs\x18\x04 \x02(\x01\x1a\"\n\nSmooth_par\x12\t\n\x01x\x18\x01 \x03(\x01\x12\t\n\x01y\x18\x02 \x03(\x01\x1a\x66\n\rSmoothVel_par\x12\n\n\x02\x64t\x18\x01 \x02(\x01\x12\n\n\x02p0\x18\x02 \x01(\x01\x12\n\n\x02v0\x18\x03 \x01(\x01\x12\n\n\x02pt\x18\x04 \x01(\x01\x12\n\n\x02vt\x18\x05 \x01(\x01\x12\n\n\x02\x64s\x18\x06 \x01(\x01\x12\r\n\x05magic\x18\x07 \x01(\x01\"<\n\x04Type\x12\n\n\x06HOMING\x10\x01\x12\x08\n\x04SINE\x10\x02\x12\x0c\n\x08SMOOTHER\x10\x03\x12\x10\n\x0cSMOOTHER_VEL\x10\x04\"s\n\rTrj_queue_cmd\x12*\n\x04type\x18\x01 \x02(\x0e\x32\x1c.iit.advr.Trj_queue_cmd.Type\x12\x11\n\ttrj_names\x18\x02 \x03(\t\"#\n\x04Type\x12\x0c\n\x08PUSH_QUE\x10\x01\x12\r\n\tEMPTY_QUE\x10\x02\"\n\n\x08Repl_hdr\"\xe3\x04\n\x08\x43trl_cmd\x12%\n\x04type\x18\x01 \x02(\x0e\x32\x17.iit.advr.Ctrl_cmd.Type\x12\x10\n\x08\x62oard_id\x18\x02 \x02(\x05\x12\r\n\x05value\x18\x03 \x01(\x02\x12\x1e\n\x05gains\x18\x04 \x01(\x0b\x32\x0f.iit.advr.Gains\"\xee\x03\n\x04Type\x12\x12\n\x0e\x43TRL_TEST_DONE\x10\x01\x12\x13\n\x0f\x43TRL_TEST_ERROR\x10\x02\x12\x11\n\rCTRL_DAC_TUNE\x10\x03\x12\x1b\n\x17\x43TRL_REMOVE_TORQUE_OFFS\x10\x04\x12\x1a\n\x16\x43TRL_SET_ZERO_POSITION\x10\x05\x12\x0c\n\x08\x43TRL_FAN\x10\x06\x12\x0c\n\x08\x43TRL_LED\x10\x07\x12\x10\n\x0c\x43TRL_SANDBOX\x10\x08\x12\x13\n\x0f\x43TRL_REF_FILTER\x10\t\x12\x12\n\x0e\x43TRL_POWER_MOD\x10\n\x12\x12\n\x0e\x43TRL_CMD_START\x10\x0b\x12\x11\n\rCTRL_CMD_STOP\x10\x0c\x12\x11\n\rCTRL_SET_HOME\x10\r\x12\x19\n\x15\x43TRL_SET_MIN_POSITION\x10\x0e\x12\x19\n\x15\x43TRL_SET_MAX_POSITION\x10\x0f\x12\x19\n\x15\x43TRL_RUN_TORQUE_CALIB\x10\x10\x12\x12\n\x0e\x43TRL_SET_GAINS\x10\x11\x12\x15\n\x11\x43TRL_SET_POSITION\x10\x12\x12\x15\n\x11\x43TRL_SET_VELOCITY\x10\x13\x12\x13\n\x0f\x43TRL_SET_TORQUE\x10\x14\x12\x14\n\x10\x43TRL_SET_CURRENT\x10\x15\x12\x10\n\x0c\x43TRL_GET_ADC\x10\x16\x12\x10\n\x0c\x43TRL_SET_DAC\x10\x17\"\x9c\x01\n\tFlash_cmd\x12&\n\x04type\x18\x01 \x02(\x0e\x32\x18.iit.advr.Flash_cmd.Type\x12\x10\n\x08\x62oard_id\x18\x02 \x02(\x05\"U\n\x04Type\x12\x18\n\x14SAVE_PARAMS_TO_FLASH\x10\x01\x12\x1a\n\x16LOAD_PARAMS_FROM_FLASH\x10\x02\x12\x17\n\x13LOAD_DEFAULT_PARAMS\x10\x03\"V\n\rSlave_SDO_cmd\x12\x10\n\x08\x62oard_id\x18\x01 \x02(\x05\x12\x0e\n\x06rd_sdo\x18\x02 \x03(\t\x12#\n\x06wr_sdo\x18\x03 \x03(\x0b\x32\x13.iit.advr.KeyValStr\"s\n\x0eSlave_SDO_info\x12+\n\x04type\x18\x01 \x02(\x0e\x32\x1d.iit.advr.Slave_SDO_info.Type\x12\x10\n\x08\x62oard_id\x18\x02 \x02(\x05\"\"\n\x04Type\x12\x0c\n\x08SDO_NAME\x10\x01\x12\x0c\n\x08SDO_OBJD\x10\x02\"\xa3\x01\n\x0f\x45\x63\x61t_Master_cmd\x12,\n\x04type\x18\x01 \x02(\x0e\x32\x1e.iit.advr.Ecat_Master_cmd.Type\x12!\n\x04\x61rgs\x18\x02 \x03(\x0b\x32\x13.iit.advr.KeyValStr\"?\n\x04Type\x12\x10\n\x0cSTART_MASTER\x10\x01\x12\x0f\n\x0bSTOP_MASTER\x10\x02\x12\x14\n\x10GET_SLAVES_DESCR\x10\x03\"g\n\nFOE_Master\x12\x10\n\x08\x66ilename\x18\x01 \x02(\t\x12\x10\n\x08password\x18\x02 \x02(\r\x12\x10\n\x08mcu_type\x18\x03 \x01(\t\x12\x11\n\tslave_pos\x18\x04 \x01(\x05\x12\x10\n\x08\x62oard_id\x18\x05 \x01(\x05\"\xc0\x01\n\x0eMotors_PDO_cmd\x12\x39\n\nmotors_pdo\x18\x01 \x03(\x0b\x32%.iit.advr.Motors_PDO_cmd.Moto_PDO_cmd\x1as\n\x0cMoto_PDO_cmd\x12\x10\n\x08motor_id\x18\x01 \x02(\x05\x12\x0f\n\x07pos_ref\x18\x02 \x01(\x02\x12\x0f\n\x07vel_ref\x18\x03 \x01(\x02\x12\x0f\n\x07tor_ref\x18\x04 \x01(\x02\x12\x1e\n\x05gains\x18\x05 \x01(\x0b\x32\x0f.iit.advr.Gains\"\xef\x03\n\x08Repl_cmd\x12\x1f\n\x04type\x18\x01 \x02(\x0e\x32\x11.iit.advr.CmdType\x12 \n\x06header\x18\x02 \x01(\x0b\x32\x10.iit.advr.Header\x12\x30\n\x0etrajectory_cmd\x18\x03 \x01(\x0b\x32\x18.iit.advr.Trajectory_cmd\x12$\n\x08\x63trl_cmd\x18\x04 \x01(\x0b\x32\x12.iit.advr.Ctrl_cmd\x12&\n\tflash_cmd\x18\x05 \x01(\x0b\x32\x13.iit.advr.Flash_cmd\x12\x32\n\x0f\x65\x63\x61t_master_cmd\x18\x06 \x01(\x0b\x32\x19.iit.advr.Ecat_Master_cmd\x12(\n\nfoe_master\x18\x07 \x01(\x0b\x32\x14.iit.advr.FOE_Master\x12.\n\rtrj_queue_cmd\x18\x08 \x01(\x0b\x32\x17.iit.advr.Trj_queue_cmd\x12.\n\rslave_sdo_cmd\x18\t \x01(\x0b\x32\x17.iit.advr.Slave_SDO_cmd\x12\x30\n\x0eslave_sdo_info\x18\n \x01(\x0b\x32\x18.iit.advr.Slave_SDO_info\x12\x30\n\x0emotors_pdo_cmd\x18\x0b \x01(\x0b\x32\x18.iit.advr.Motors_PDO_cmd\"\xaf\x01\n\tCmd_reply\x12&\n\x04type\x18\x01 \x02(\x0e\x32\x18.iit.advr.Cmd_reply.Type\x12#\n\x08\x63md_type\x18\x02 \x02(\x0e\x32\x11.iit.advr.CmdType\x12\x0b\n\x03msg\x18\x03 \x02(\t\x12 \n\x06header\x18\x04 \x01(\x0b\x32\x10.iit.advr.Header\x12\x0b\n\x03pdo\x18\x05 \x01(\t\"\x19\n\x04Type\x12\x07\n\x03\x41\x43K\x10\x01\x12\x08\n\x04NACK\x10\x02\"5\n\nTrj_Status\x12\x12\n\nqueue_size\x18\x01 \x02(\r\x12\x13\n\x0brunning_trj\x18\x02 \x01(\t\"\x98\x01\n\x08TM_Stats\x12\x14\n\x0crecv_dc_time\x18\x01 \x02(\x03\x12\x0e\n\x06offset\x18\x02 \x02(\x03\x12\x11\n\tloop_time\x18\x03 \x02(\x04\x12\x13\n\x0b\x65\x63\x61t_rx_wkc\x18\x04 \x02(\x05\x12\r\n\x05\x64\x65lta\x18\x05 \x02(\x03\x12\x13\n\x0b\x65\x63_cycle_ns\x18\x06 \x02(\x04\x12\x1a\n\x02ts\x18\x07 \x02(\x0b\x32\x0e.iit.advr.Time\"\x8a\x01\n\tRepl_info\x12 \n\x06header\x18\x01 \x01(\x0b\x32\x10.iit.advr.Header\x12\x0b\n\x03msg\x18\x02 \x01(\t\x12(\n\ntrj_status\x18\x03 \x01(\x0b\x32\x14.iit.advr.Trj_Status\x12$\n\x08tm_stats\x18\x04 \x01(\x0b\x32\x12.iit.advr.TM_Stats*\xa5\x01\n\x07\x43mdType\x12\x0b\n\x07TRJ_CMD\x10\x01\x12\x0c\n\x08\x43TRL_CMD\x10\x02\x12\r\n\tFLASH_CMD\x10\x03\x12\x13\n\x0f\x45\x43\x41T_MASTER_CMD\x10\x04\x12\x0e\n\nFOE_MASTER\x10\x05\x12\x11\n\rTRJ_QUEUE_CMD\x10\x06\x12\x11\n\rSLAVE_SDO_CMD\x10\x07\x12\x12\n\x0eSLAVE_SDO_INFO\x10\x08\x12\x11\n\rMOTOR_PDO_CMD\x10\t')
   ,
   dependencies=[header__pb2.DESCRIPTOR,])
 
@@ -63,11 +63,15 @@ _CMDTYPE = _descriptor.EnumDescriptor(
       name='SLAVE_SDO_INFO', index=7, number=8,
       serialized_options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='MOTOR_PDO_CMD', index=8, number=9,
+      serialized_options=None,
+      type=None),
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3177,
-  serialized_end=3323,
+  serialized_start=3639,
+  serialized_end=3804,
 )
 _sym_db.RegisterEnumDescriptor(_CMDTYPE)
 
@@ -80,6 +84,7 @@ FOE_MASTER = 5
 TRJ_QUEUE_CMD = 6
 SLAVE_SDO_CMD = 7
 SLAVE_SDO_INFO = 8
+MOTOR_PDO_CMD = 9
 
 
 _GAINS_TYPE = _descriptor.EnumDescriptor(
@@ -357,32 +362,10 @@ _CMD_REPLY_TYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3015,
-  serialized_end=3040,
+  serialized_start=3260,
+  serialized_end=3285,
 )
 _sym_db.RegisterEnumDescriptor(_CMD_REPLY_TYPE)
-
-_REPL_ASYNC_TYPE = _descriptor.EnumDescriptor(
-  name='Type',
-  full_name='iit.advr.Repl_async.Type',
-  filename=None,
-  file=DESCRIPTOR,
-  values=[
-    _descriptor.EnumValueDescriptor(
-      name='ALIVE', index=0, number=1,
-      serialized_options=None,
-      type=None),
-    _descriptor.EnumValueDescriptor(
-      name='STATUS', index=1, number=2,
-      serialized_options=None,
-      type=None),
-  ],
-  containing_type=None,
-  serialized_options=None,
-  serialized_start=3145,
-  serialized_end=3174,
-)
-_sym_db.RegisterEnumDescriptor(_REPL_ASYNC_TYPE)
 
 
 _VECTOR2D = _descriptor.Descriptor(
@@ -1195,6 +1178,95 @@ _FOE_MASTER = _descriptor.Descriptor(
 )
 
 
+_MOTORS_PDO_CMD_MOTO_PDO_CMD = _descriptor.Descriptor(
+  name='Moto_PDO_cmd',
+  full_name='iit.advr.Motors_PDO_cmd.Moto_PDO_cmd',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='motor_id', full_name='iit.advr.Motors_PDO_cmd.Moto_PDO_cmd.motor_id', index=0,
+      number=1, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='pos_ref', full_name='iit.advr.Motors_PDO_cmd.Moto_PDO_cmd.pos_ref', index=1,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='vel_ref', full_name='iit.advr.Motors_PDO_cmd.Moto_PDO_cmd.vel_ref', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='tor_ref', full_name='iit.advr.Motors_PDO_cmd.Moto_PDO_cmd.tor_ref', index=3,
+      number=4, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='gains', full_name='iit.advr.Motors_PDO_cmd.Moto_PDO_cmd.gains', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2494,
+  serialized_end=2609,
+)
+
+_MOTORS_PDO_CMD = _descriptor.Descriptor(
+  name='Motors_PDO_cmd',
+  full_name='iit.advr.Motors_PDO_cmd',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='motors_pdo', full_name='iit.advr.Motors_PDO_cmd.motors_pdo', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[_MOTORS_PDO_CMD_MOTO_PDO_CMD, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2417,
+  serialized_end=2609,
+)
+
+
 _REPL_CMD = _descriptor.Descriptor(
   name='Repl_cmd',
   full_name='iit.advr.Repl_cmd',
@@ -1272,6 +1344,13 @@ _REPL_CMD = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='motors_pdo_cmd', full_name='iit.advr.Repl_cmd.motors_pdo_cmd', index=10,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -1284,8 +1363,8 @@ _REPL_CMD = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2417,
-  serialized_end=2862,
+  serialized_start=2612,
+  serialized_end=3107,
 )
 
 
@@ -1344,35 +1423,28 @@ _CMD_REPLY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2865,
-  serialized_end=3040,
+  serialized_start=3110,
+  serialized_end=3285,
 )
 
 
-_REPL_ASYNC = _descriptor.Descriptor(
-  name='Repl_async',
-  full_name='iit.advr.Repl_async',
+_TRJ_STATUS = _descriptor.Descriptor(
+  name='Trj_Status',
+  full_name='iit.advr.Trj_Status',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='type', full_name='iit.advr.Repl_async.type', index=0,
-      number=1, type=14, cpp_type=8, label=2,
-      has_default_value=False, default_value=1,
+      name='queue_size', full_name='iit.advr.Trj_Status.queue_size', index=0,
+      number=1, type=13, cpp_type=3, label=2,
+      has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='header', full_name='iit.advr.Repl_async.header', index=1,
-      number=2, type=11, cpp_type=10, label=1,
-      has_default_value=False, default_value=None,
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-    _descriptor.FieldDescriptor(
-      name='msg', full_name='iit.advr.Repl_async.msg', index=2,
-      number=3, type=9, cpp_type=9, label=1,
+      name='running_trj', full_name='iit.advr.Trj_Status.running_trj', index=1,
+      number=2, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -1382,7 +1454,6 @@ _REPL_ASYNC = _descriptor.Descriptor(
   ],
   nested_types=[],
   enum_types=[
-    _REPL_ASYNC_TYPE,
   ],
   serialized_options=None,
   is_extendable=False,
@@ -1390,8 +1461,133 @@ _REPL_ASYNC = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3043,
-  serialized_end=3174,
+  serialized_start=3287,
+  serialized_end=3340,
+)
+
+
+_TM_STATS = _descriptor.Descriptor(
+  name='TM_Stats',
+  full_name='iit.advr.TM_Stats',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='recv_dc_time', full_name='iit.advr.TM_Stats.recv_dc_time', index=0,
+      number=1, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='offset', full_name='iit.advr.TM_Stats.offset', index=1,
+      number=2, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='loop_time', full_name='iit.advr.TM_Stats.loop_time', index=2,
+      number=3, type=4, cpp_type=4, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ecat_rx_wkc', full_name='iit.advr.TM_Stats.ecat_rx_wkc', index=3,
+      number=4, type=5, cpp_type=1, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='delta', full_name='iit.advr.TM_Stats.delta', index=4,
+      number=5, type=3, cpp_type=2, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ec_cycle_ns', full_name='iit.advr.TM_Stats.ec_cycle_ns', index=5,
+      number=6, type=4, cpp_type=4, label=2,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='ts', full_name='iit.advr.TM_Stats.ts', index=6,
+      number=7, type=11, cpp_type=10, label=2,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3343,
+  serialized_end=3495,
+)
+
+
+_REPL_INFO = _descriptor.Descriptor(
+  name='Repl_info',
+  full_name='iit.advr.Repl_info',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='header', full_name='iit.advr.Repl_info.header', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='msg', full_name='iit.advr.Repl_info.msg', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='trj_status', full_name='iit.advr.Repl_info.trj_status', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='tm_stats', full_name='iit.advr.Repl_info.tm_stats', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto2',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3498,
+  serialized_end=3636,
 )
 
 _GAINS.fields_by_name['type'].enum_type = _GAINS_TYPE
@@ -1419,6 +1615,9 @@ _SLAVE_SDO_INFO_TYPE.containing_type = _SLAVE_SDO_INFO
 _ECAT_MASTER_CMD.fields_by_name['type'].enum_type = _ECAT_MASTER_CMD_TYPE
 _ECAT_MASTER_CMD.fields_by_name['args'].message_type = _KEYVALSTR
 _ECAT_MASTER_CMD_TYPE.containing_type = _ECAT_MASTER_CMD
+_MOTORS_PDO_CMD_MOTO_PDO_CMD.fields_by_name['gains'].message_type = _GAINS
+_MOTORS_PDO_CMD_MOTO_PDO_CMD.containing_type = _MOTORS_PDO_CMD
+_MOTORS_PDO_CMD.fields_by_name['motors_pdo'].message_type = _MOTORS_PDO_CMD_MOTO_PDO_CMD
 _REPL_CMD.fields_by_name['type'].enum_type = _CMDTYPE
 _REPL_CMD.fields_by_name['header'].message_type = header__pb2._HEADER
 _REPL_CMD.fields_by_name['trajectory_cmd'].message_type = _TRAJECTORY_CMD
@@ -1429,13 +1628,15 @@ _REPL_CMD.fields_by_name['foe_master'].message_type = _FOE_MASTER
 _REPL_CMD.fields_by_name['trj_queue_cmd'].message_type = _TRJ_QUEUE_CMD
 _REPL_CMD.fields_by_name['slave_sdo_cmd'].message_type = _SLAVE_SDO_CMD
 _REPL_CMD.fields_by_name['slave_sdo_info'].message_type = _SLAVE_SDO_INFO
+_REPL_CMD.fields_by_name['motors_pdo_cmd'].message_type = _MOTORS_PDO_CMD
 _CMD_REPLY.fields_by_name['type'].enum_type = _CMD_REPLY_TYPE
 _CMD_REPLY.fields_by_name['cmd_type'].enum_type = _CMDTYPE
 _CMD_REPLY.fields_by_name['header'].message_type = header__pb2._HEADER
 _CMD_REPLY_TYPE.containing_type = _CMD_REPLY
-_REPL_ASYNC.fields_by_name['type'].enum_type = _REPL_ASYNC_TYPE
-_REPL_ASYNC.fields_by_name['header'].message_type = header__pb2._HEADER
-_REPL_ASYNC_TYPE.containing_type = _REPL_ASYNC
+_TM_STATS.fields_by_name['ts'].message_type = header__pb2._TIME
+_REPL_INFO.fields_by_name['header'].message_type = header__pb2._HEADER
+_REPL_INFO.fields_by_name['trj_status'].message_type = _TRJ_STATUS
+_REPL_INFO.fields_by_name['tm_stats'].message_type = _TM_STATS
 DESCRIPTOR.message_types_by_name['Vector2d'] = _VECTOR2D
 DESCRIPTOR.message_types_by_name['Gains'] = _GAINS
 DESCRIPTOR.message_types_by_name['Slave_objd'] = _SLAVE_OBJD
@@ -1449,9 +1650,12 @@ DESCRIPTOR.message_types_by_name['Slave_SDO_cmd'] = _SLAVE_SDO_CMD
 DESCRIPTOR.message_types_by_name['Slave_SDO_info'] = _SLAVE_SDO_INFO
 DESCRIPTOR.message_types_by_name['Ecat_Master_cmd'] = _ECAT_MASTER_CMD
 DESCRIPTOR.message_types_by_name['FOE_Master'] = _FOE_MASTER
+DESCRIPTOR.message_types_by_name['Motors_PDO_cmd'] = _MOTORS_PDO_CMD
 DESCRIPTOR.message_types_by_name['Repl_cmd'] = _REPL_CMD
 DESCRIPTOR.message_types_by_name['Cmd_reply'] = _CMD_REPLY
-DESCRIPTOR.message_types_by_name['Repl_async'] = _REPL_ASYNC
+DESCRIPTOR.message_types_by_name['Trj_Status'] = _TRJ_STATUS
+DESCRIPTOR.message_types_by_name['TM_Stats'] = _TM_STATS
+DESCRIPTOR.message_types_by_name['Repl_info'] = _REPL_INFO
 DESCRIPTOR.enum_types_by_name['CmdType'] = _CMDTYPE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -1578,6 +1782,21 @@ FOE_Master = _reflection.GeneratedProtocolMessageType('FOE_Master', (_message.Me
   ))
 _sym_db.RegisterMessage(FOE_Master)
 
+Motors_PDO_cmd = _reflection.GeneratedProtocolMessageType('Motors_PDO_cmd', (_message.Message,), dict(
+
+  Moto_PDO_cmd = _reflection.GeneratedProtocolMessageType('Moto_PDO_cmd', (_message.Message,), dict(
+    DESCRIPTOR = _MOTORS_PDO_CMD_MOTO_PDO_CMD,
+    __module__ = 'repl_cmd_pb2'
+    # @@protoc_insertion_point(class_scope:iit.advr.Motors_PDO_cmd.Moto_PDO_cmd)
+    ))
+  ,
+  DESCRIPTOR = _MOTORS_PDO_CMD,
+  __module__ = 'repl_cmd_pb2'
+  # @@protoc_insertion_point(class_scope:iit.advr.Motors_PDO_cmd)
+  ))
+_sym_db.RegisterMessage(Motors_PDO_cmd)
+_sym_db.RegisterMessage(Motors_PDO_cmd.Moto_PDO_cmd)
+
 Repl_cmd = _reflection.GeneratedProtocolMessageType('Repl_cmd', (_message.Message,), dict(
   DESCRIPTOR = _REPL_CMD,
   __module__ = 'repl_cmd_pb2'
@@ -1592,12 +1811,26 @@ Cmd_reply = _reflection.GeneratedProtocolMessageType('Cmd_reply', (_message.Mess
   ))
 _sym_db.RegisterMessage(Cmd_reply)
 
-Repl_async = _reflection.GeneratedProtocolMessageType('Repl_async', (_message.Message,), dict(
-  DESCRIPTOR = _REPL_ASYNC,
+Trj_Status = _reflection.GeneratedProtocolMessageType('Trj_Status', (_message.Message,), dict(
+  DESCRIPTOR = _TRJ_STATUS,
   __module__ = 'repl_cmd_pb2'
-  # @@protoc_insertion_point(class_scope:iit.advr.Repl_async)
+  # @@protoc_insertion_point(class_scope:iit.advr.Trj_Status)
   ))
-_sym_db.RegisterMessage(Repl_async)
+_sym_db.RegisterMessage(Trj_Status)
+
+TM_Stats = _reflection.GeneratedProtocolMessageType('TM_Stats', (_message.Message,), dict(
+  DESCRIPTOR = _TM_STATS,
+  __module__ = 'repl_cmd_pb2'
+  # @@protoc_insertion_point(class_scope:iit.advr.TM_Stats)
+  ))
+_sym_db.RegisterMessage(TM_Stats)
+
+Repl_info = _reflection.GeneratedProtocolMessageType('Repl_info', (_message.Message,), dict(
+  DESCRIPTOR = _REPL_INFO,
+  __module__ = 'repl_cmd_pb2'
+  # @@protoc_insertion_point(class_scope:iit.advr.Repl_info)
+  ))
+_sym_db.RegisterMessage(Repl_info)
 
 
 # @@protoc_insertion_point(module_scope)

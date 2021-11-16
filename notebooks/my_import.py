@@ -2,11 +2,8 @@ import sys
 import time
 import socket
 import yaml
-<<<<<<< HEAD
 from  pprint import pprint as pp
-=======
 from dataclasses import asdict
->>>>>>> 0c523ba185192144a9924f0c0a7be093d4d0658f
 import ipywidgets.widgets as widgets
 from IPython.display import display
 
