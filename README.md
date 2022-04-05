@@ -1,15 +1,17 @@
+# Ecat repl
+
 ## Getting started
 
-install anaconda https://docs.anaconda.com/anaconda/install/
+install anaconda <https://docs.anaconda.com/anaconda/install/>
 
-# prepare a conda env 
+## prepare a conda env
 
 conda env create --file condaenv_repl.yaml
 conda activate repl
 conda install -y ipykernel ipywidgets
 ipython kernel install --user --name=repl
 
-# check kernel python path 
+## check kernel python path
 
 check in $HOME/.local/share/jupyter/kernels/repl/kernel.json
 
@@ -25,10 +27,8 @@ check in $HOME/.local/share/jupyter/kernels/repl/kernel.json
  "language": "python"
 }
 
-
-# install ecat-repl package
+## install ecat-repl package
 
 make install-dev
 
-# Jupyter notebooks
-
+## Jupyter notebooks
