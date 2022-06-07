@@ -3,6 +3,7 @@ channels:
   - conda-forge
 dependencies:
   - python=3.7
+  - numpy
   - pyzmq
   - pyyaml
   - protobuf
