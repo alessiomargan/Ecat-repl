@@ -45,3 +45,59 @@ from ecat_repl import (
     ctrl_cmd_test_done,
     ctrl_cmd_test_error,
 )
+
+status_cmds = {
+    'FAN_ON':           0x0026,
+    'FAN_OFF':			0x0062,
+    'LED_ON':           0x0019,
+    'LED_OFF':          0x0091,
+    'RELEASE_BRAKE':    0x00BD,
+    'ENGAGE_BRAKE':     0x00DB,
+}
+reply_cmds = {
+    'CMD_DONE':         0x7800,
+    'CMD_WORKING':		0xD000,
+    'CMD_ERROR':		0xAA00,
+    'CMD_NOCOND':       0xBB00,
+}
+
+# set default uri
+uri = socket.gethostname()+".local:5555"
+_io = ZmsgIO(uri)
+
+def set_uri(uri):
+    global _io
+    print('new uri {}'.format(uri))
+    _io = ZmsgIO(uri)
+    return _io
+
+def reply_cmd(cmd):
+    reply = _io.doit(cmd)
+    yaml_msg = yaml.safe_load(reply['msg'])
+    return yaml_msg
+
+def ctrl_status_cmd(ctrl_cmd: int, bid: int):
+    msg = reply_cmd(SdoCmd(rd_sdo=[],wr_sdo={'ctrl_status_cmd': ctrl_cmd}).set_bid(bid))
+    msg = reply_cmd(SdoCmd(rd_sdo=['ctrl_status_cmd_ack'],wr_sdo={}).set_bid(bid))
+    print(hex(msg['ctrl_status_cmd_ack']))
+    return msg['ctrl_status_cmd_ack'] == ctrl_cmd + reply_cmds['CMD_DONE']
+
+def ctrl_status_cmd_str(ctrl_cmd: str, bid: int):
+    return ctrl_status_cmd(status_cmds[ctrl_cmd], bid) 
+
+def sdo_filter(snames:list, sdos:dict):
+    return {key:sdos[key] for key in snames}
+
+def read_sdo(rd_sdo, ids):
+    d = dict()
+    for iD in ids:
+        yaml_msg = reply_cmd(SdoCmd(rd_sdo=rd_sdo,wr_sdo={}).set_bid(iD))
+        d[iD] = yaml_msg
+    return d
+
+def write_sdo(wr_sdo, ids):
+    d = dict()
+    for iD in ids:
+        yaml_msg = reply_cmd(SdoCmd(rd_sdo={},wr_sdo=wr_sdo).set_bid(iD))
+        d[iD] = yaml_msg
+    return d
