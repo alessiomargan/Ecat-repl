@@ -88,16 +88,17 @@ def ctrl_status_cmd_str(ctrl_cmd: str, bid: int):
 def sdo_filter(snames:list, sdos:dict):
     return {key:sdos[key] for key in snames}
 
-def read_sdo(rd_sdo, ids):
+def read_sdo(rd_sdos:list, ids:list):
     d = dict()
     for iD in ids:
-        yaml_msg = reply_cmd(SdoCmd(rd_sdo=rd_sdo,wr_sdo={}).set_bid(iD))
+        yaml_msg = reply_cmd(SdoCmd(rd_sdo=rd_sdos,wr_sdo={}).set_bid(iD))
         d[iD] = yaml_msg
     return d
 
-def write_sdo(wr_sdo, ids):
+def write_sdo(wr_sdo:dict, ids:list):
     d = dict()
+    wr_keys = list(wr_sdo.keys())
     for iD in ids:
-        yaml_msg = reply_cmd(SdoCmd(rd_sdo={},wr_sdo=wr_sdo).set_bid(iD))
+        yaml_msg = reply_cmd(SdoCmd(rd_sdo=wr_keys,wr_sdo=wr_sdo).set_bid(iD))
         d[iD] = yaml_msg
     return d
