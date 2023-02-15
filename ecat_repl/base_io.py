@@ -40,6 +40,7 @@ ctrl_cmd_set_gains = CtrlCmd(u'CTRL_SET_GAINS')
 ctrl_cmd_dac_tune = CtrlCmd(u'CTRL_DAC_TUNE')
 ctrl_cmd_get_adc = CtrlCmd(u'CTRL_GET_ADC')
 ctrl_cmd_set_dac = CtrlCmd(u'CTRL_SET_DAC')
+ctrl_cmd_set_dac_flash = CtrlCmd(u'CTRL_SET_DAC_FLASH')
 
 #
 ctrl_cmd_test_error = CtrlCmd(u'CTRL_TEST_ERROR')

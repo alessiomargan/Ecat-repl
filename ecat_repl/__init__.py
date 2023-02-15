@@ -46,6 +46,7 @@ from . base_io import (
     ctrl_cmd_dac_tune,
     ctrl_cmd_get_adc,
     ctrl_cmd_set_dac,
+    ctrl_cmd_set_dac_flash,
     ctrl_cmd_test_error,
     ctrl_cmd_test_done,
 )
