@@ -54,6 +54,7 @@ status_cmds = {
     'LED_OFF':          0x0091,
     'RELEASE_BRAKE':    0x00BD,
     'ENGAGE_BRAKE':     0x00DB,
+    'LOAD_DFLT_CM':     0x00C1,
 }
 reply_cmds = {
     'CMD_DONE':         0x7800,
@@ -77,15 +78,6 @@ def reply_cmd(cmd):
     yaml_msg = yaml.safe_load(reply['msg'])
     return yaml_msg
 
-def ctrl_status_cmd(ctrl_cmd: int, bid: int):
-    msg = reply_cmd(SdoCmd(rd_sdo=[],wr_sdo={'ctrl_status_cmd': ctrl_cmd}).set_bid(bid))
-    msg = reply_cmd(SdoCmd(rd_sdo=['ctrl_status_cmd_ack'],wr_sdo={}).set_bid(bid))
-    print(hex(msg['ctrl_status_cmd_ack']))
-    return msg['ctrl_status_cmd_ack'] == ctrl_cmd + reply_cmds['CMD_DONE']
-
-def ctrl_status_cmd_str(ctrl_cmd: str, bid: int):
-    return ctrl_status_cmd(status_cmds[ctrl_cmd], bid) 
-
 def sdo_filter(snames:list, sdos:dict):
     return {key:sdos[key] for key in snames}
 
@@ -103,3 +95,14 @@ def write_sdo(wr_sdo:dict, ids:list):
         yaml_msg = reply_cmd(SdoCmd(rd_sdo=wr_keys,wr_sdo=wr_sdo).set_bid(iD))
         d[iD] = yaml_msg
     return d
+
+def ctrl_status_cmd(ctrl_cmd:int, bid:int):
+    wr_sdo = {'ctrl_status_cmd': ctrl_cmd}
+    rd_sdo = ['ctrl_status_cmd_ack']
+    write_sdo(wr_sdo,[bid])
+    msg = read_sdo(rd_sdo,[bid])[bid]
+    print(hex(msg['ctrl_status_cmd_ack']))
+    return msg['ctrl_status_cmd_ack'] == ctrl_cmd + reply_cmds['CMD_DONE']
+
+def ctrl_status_cmd_str(ctrl_cmd:str, bid:int):
+    return ctrl_status_cmd(status_cmds[ctrl_cmd], bid) 
