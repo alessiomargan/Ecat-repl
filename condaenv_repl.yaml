@@ -2,7 +2,9 @@ name: repl
 channels:
   - conda-forge
 dependencies:
-  - python=3.7
+  - python=3.9
+  - jupyter
+  - ipykernel
   - numpy
   - pyzmq
   - pyyaml
@@ -12,3 +14,4 @@ dependencies:
   - pip
   - pip:
     - protobuf3-to-dict
+    - simple-pid

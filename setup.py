@@ -22,10 +22,10 @@ setup(
     description='An awesome package that does something',
     long_description=readme,
     install_requires=[
-        "protobuf>=3.7.0",
-        "protobuf3-to-dict>=0.1.5",
-        "PyYAML>=3.13",
-        "pyzmq==18.0.1",
+        "protobuf",
+        "protobuf3-to-dict",
+        "PyYAML",
+        "pyzmq",
     ],
     extras_require={
         "dotenv": ["python-dotenv"],
