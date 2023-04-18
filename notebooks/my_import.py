@@ -5,10 +5,11 @@ import yaml
 import math
 from  pprint import pprint as pp
 from dataclasses import asdict
-import ipywidgets.widgets as widgets
-from IPython.display import display
+#import ipywidgets.widgets as widgets
+#from IPython.display import display
 
-print(sys.executable)
+print("Python path :", sys.executable)
+print("Python version :", sys.version)
 
 from ecat_repl import ZmsgIO
 from ecat_repl import FoeMaster
@@ -55,12 +56,14 @@ status_cmds = {
     'RELEASE_BRAKE':    0x00BD,
     'ENGAGE_BRAKE':     0x00DB,
     'LOAD_DFLT_CM':     0x00C1,
+    'LOAD_CM':          0x00C4,
 }
 reply_cmds = {
     'CMD_DONE':         0x7800,
     'CMD_WORKING':		0xD000,
     'CMD_ERROR':		0xAA00,
     'CMD_NOCOND':       0xBB00,
+    'CMD_INVALID':      0xEE00,
 }
 
 # set default uri
