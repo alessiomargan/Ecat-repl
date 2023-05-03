@@ -2,7 +2,7 @@ name: repl
 channels:
   - conda-forge
 dependencies:
-  - python=3.9
+  - python=3.11
   - jupyter
   - ipykernel
   - numpy
@@ -11,6 +11,8 @@ dependencies:
   - protobuf
   - flask
   - coverage
+  - nbstripout
+  - nbconvert
   - pip
   - pip:
     - protobuf3-to-dict
