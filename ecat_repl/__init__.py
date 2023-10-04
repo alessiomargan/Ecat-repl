@@ -33,11 +33,11 @@ from . base_io import (
     ctrl_cmd_stop,
     ctrl_cmd_fan,
     ctrl_cmd_led,
-    ctrl_cmd_run_torque_calib,
+    #ctrl_cmd_run_torque_calib,
     ctrl_cmd_set_home,
-    ctrl_cmd_set_zero,
-    ctrl_cmd_set_min_pos,
-    ctrl_cmd_set_max_pos,
+    #ctrl_cmd_set_zero,
+    #ctrl_cmd_set_min_pos,
+    #ctrl_cmd_set_max_pos,
     ctrl_cmd_set_position,
     ctrl_cmd_set_gains,
     ctrl_cmd_set_velocity,
@@ -50,6 +50,6 @@ from . base_io import (
     ctrl_cmd_test_error,
     ctrl_cmd_test_done,
 )
-from ecat_repl import repl_cmd_pb2 as repl_cmd
+from ecat_repl.proto import repl_cmd_pb2 as repl_cmd
 from . zmsg_io import ZmsgIO
 from . pipe_io import PipeIO

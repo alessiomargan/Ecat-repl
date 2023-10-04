@@ -4,7 +4,7 @@ import zmq
 from protobuf_to_dict import protobuf_to_dict, dict_to_protobuf
 from dataclasses import asdict, is_dataclass
 
-from ecat_repl import repl_cmd_pb2 as repl_cmd
+from ecat_repl.proto import repl_cmd_pb2 as repl_cmd
 from ecat_repl import gen_cmds
 
 
