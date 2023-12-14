@@ -51,5 +51,6 @@ from . base_io import (
     ctrl_cmd_test_done,
 )
 from ecat_repl.proto import repl_cmd_pb2 as repl_cmd
+from ecat_repl.proto import ecat_pdo_pb2 as ecat_pdo
 from . zmsg_io import ZmsgIO
 from . pipe_io import PipeIO
