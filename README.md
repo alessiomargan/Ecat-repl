@@ -8,10 +8,10 @@ install anaconda <https://docs.anaconda.com/anaconda/install/>
 
 ## prepare a conda env
 
-conda env create --file condaenv_repl.yaml
-conda activate repl
-conda install -y ipykernel ipywidgets
-ipython kernel install --user --name=repl
+conda env create --file condaenv_repl.yaml  
+conda activate repl  
+conda install -y ipykernel ipywidgets  
+ipython kernel install --user --name=repl  
 
 ## check kernel python path
 
